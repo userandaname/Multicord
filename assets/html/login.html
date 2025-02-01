@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en-GB" style="font-size: 100%; --saturation-factor: 1; --devtools-sidebar-width: 0px;" class="has-webkit-scrollbar full-motion show-redesigned-icons theme-dark images-dark density-cozy platform-web font-size-16" data-rh="lang,style,class">
+   <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width,initial-scale=1,maximum-scale=3" name="viewport">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+    </style>
+      <!-- section:seometa -->
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Discord">
+      <meta property="og:title" content="Discord - Group Chat That’s All Fun &amp; Games">
+      <meta property="og:description" content="Discord is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.">
+      <meta property="og:image" content="https://cdn.discordapp.com/og_img_discord_home.png">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:site" content="@discord">
+      <meta name="twitter:creator" content="@discord">
+      <!-- endsection --><script nonce="">window.GLOBAL_ENV = {
+         API_ENDPOINT: '//discord.com/api',
+         API_VERSION: 9,
+         GATEWAY_ENDPOINT: 'wss://gateway.discord.gg',
+         WEBAPP_ENDPOINT: '//discord.com',
+         CDN_HOST: 'cdn.discordapp.com',
+         ASSET_ENDPOINT: '//discord.com',
+         MEDIA_PROXY_ENDPOINT: '//media.discordapp.net',
+         IMAGE_PROXY_ENDPOINTS: '//images-ext-1.discordapp.net,//images-ext-2.discordapp.net',
+         WIDGET_ENDPOINT: '//discord.com/widget',
+         INVITE_HOST: 'discord.gg',
+         GUILD_TEMPLATE_HOST: 'discord.new',
+         GIFT_CODE_HOST: 'discord.gift',
+         RELEASE_CHANNEL: 'stable',
+         DEVELOPERS_ENDPOINT: '//discord.com',
+         MARKETING_ENDPOINT: '//discord.com',
+         BRAINTREE_KEY: 'production_ktzp8hfp_49pp2rp4phym7387',
+         STRIPE_KEY: 'pk_live_CUQtlpQUF0vufWpnpUmQvcdi',
+         ADYEN_KEY: 'live_E3OQ33V6GVGTXOVQZEAFQJ6DJIDVG6SY',
+         NETWORKING_ENDPOINT: '//router.discordapp.net',
+         RTC_LATENCY_ENDPOINT: '//latency.discord.media/rtc',
+         ACTIVITY_APPLICATION_HOST: 'discordsays.com',
+         PROJECT_ENV: 'production',
+         REMOTE_AUTH_ENDPOINT: '//remote-auth-gateway.discord.gg',
+         SENTRY_TAGS: {"buildId":"a932d4afe84dbcdaadb4f8cd62c3ae0497e248ed","buildType":"normal"},
+         MIGRATION_SOURCE_ORIGIN: 'https://discordapp.com',
+         MIGRATION_DESTINATION_ORIGIN: 'https://discord.com',
+         HTML_TIMESTAMP: Date.now(),
+         ALGOLIA_KEY: 'aca0d7082e4e63af5ba5917d5e96bed0',
+         PUBLIC_PATH: '../discord/',
+         STATIC_ENDPOINT: '',
+         DEV_SESSION_KEY: 'undefined',
+         };
+      </script><script nonce="">!function(){if(null!=window.WebSocket){if(function(n){try{var o=localStorage.getItem(n);return null==o?null:JSON.parse(o)}catch(n){return null}}("token")&&!window.__OVERLAY__){var n=null!=window.DiscordNative||null!=window.require?"etf":"json",o=window.GLOBAL_ENV.GATEWAY_ENDPOINT+"/?encoding="+n+"&v="+window.GLOBAL_ENV.API_VERSION;null!=window.DiscordNative&&void 0!==window.Uint8Array&&void 0!==window.TextDecoder?o+="&compress=zstd-stream":void 0!==window.Uint8Array&&(o+="&compress=zlib-stream"),console.log("[FAST CONNECT] "+o+", encoding: "+n+", version: "+window.GLOBAL_ENV.API_VERSION);var e=new WebSocket(o);e.binaryType="arraybuffer";var i=Date.now(),w={open:!1,identify:!1,gateway:o,messages:[]};e.onopen=function(){console.log("[FAST CONNECT] connected in "+(Date.now()-i)+"ms"),w.open=!0},e.onclose=e.onerror=function(){window._ws=null},e.onmessage=function(n){w.messages.push(n)},window._ws={ws:e,state:w}}}}()</script>    <!-- section:title -->
+      <title>Discord</title>
+      <!-- endsection -->
+      <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAAXNSR0IArs4c6QAAIABJREFUeF7tXQt4VNW1/teZTF5AJgFFRLwClwpYVErxohaVVnqL1So+IEm1bTQJIqK1VbngMz5QLmp9QpEJmmu1mYAPfF1pS+vj5ooUqlBRwFKEKyrySmYIeU3mrNs9IRZCkjln5pwz57HzfXx+frMfa/1r7//svfbaaxPkn6MRmFxSl5/rx+AYfIMI6iDAd5RK6gBFxVEM5BMhn0G5BPQGOD+uLFNvEPxHKs51DLQRqAFAM8ARZtQD2MMK6hVWdjLxTjB2+hDbweTbUb04b4+jAfS48ORx/R2hfknJp9mt/vwRbayM8gEjGBjFRIMV5qFM1CetSjDXMdH/QcUWkLqNSNmAmLohlt26adnC/oJI5J+NEZAEYDPjTJmxqzdFc08nahtLoNHMGENMg7v+YttM+EPFYUSZ+BOotIkUvAemtbHMprWSFOxlM0kAabbHlBm7BijRrAlMGE+MCcR0ouMmu1YMGVEQPlaJa4lRq/pb3lq2sP9OrdVlOeMRkARgPKY9tii+8Eo0e4Ki8kTVh0nENNxiEWzVHRNvVmJYoSq0UvU3C0KQ2wYLLSQJwAKwLynbOygLGZfFCBMV8PcAJceCbp3YRRMzv0OkLIevbUVoUcE2JyrhJJklAZhkraLpdYMR810GYCqA00zqxt3NMlaxor5CCockGZhjakkABuJaUlKX35SpXEFMP5WT3kBgRVNxMuDfKqCQPHo0DltJACliOeFOzjjmi/2TCFwGph+61oGXIk4GVm8C+PekYNGXA/JWvnUXtRnYtueakgSQpMnFvj4TGWUASkB0QpLNyGqpIMD8GSu8UM3IqFq2sLc8TUgCS0kAOkErnhYZrzJNJ+ap8muvEzzzisdXBVD43tCT+WvN68Z9LUsC0GBTscwf8HnDZCA2E6Sco6GKLJIuBBirSMH86sV5y9MlgpP6lQTQg7XiE/+L/VdAxS1Q8A0nGdbzshJ/AKbHsqN7Q1VVQ5o9j0c3AEgC6AIYOfFdNV02ApgviaBrm0oCOAQXOfFdNfE7K7ORQXfXBPuEXK2lTuUkARwEbGp5w0SF1UdA+KZODGVxJyFA/AGB7pY+gnajeZ4ALp0WGeFX1UXSueekWZy6rAz+nQ/q7N8GC9al3ppzW/AsAcSj9vy+ecS4Sh7nOXcApyh5EwPPqH6lwqtxBJ4kgOLSSBkrmA+gIMUBJKu7A4EvAbo7FOyzyB3qaNfCUwQQX+7HuAoKjdMOkSzpFQQY/L8+qDO9tC3wBAGIlFpNGX1vI9Asudz3ynROWs8mEM/Pbt03zwvxA64ngMKy8OkEegqEkUkPCVnRewgQf6CwepXbVwOuJQBxpn/s55EKll99701e4zR2/WrAlQQwpTQ8zAc8K/f6xs0ET7ek8mr41SI3JiVxHQH8uDxSEgMeIyC96bI9PWNcqXxTDJixLJhX5SbtXEMA7ck2sxYR6HI3GUjqYi8EmPm5nLZ9ZW5xELqCANqj+fCidPTZa7K4VRqRydgfwwXPLglscbqOjieAorL6y5iUp+SS3+lD0XHyNxHhx06/U+BYAvjay090q+OGjhTYNQgQ89zqysBtTlXIkQTQ/nxWdkgBzncq8FJu9yAgLhblRPdNdqJfwHEEIPLtc5vvFSKc7J4hJDVxOgIMrCdfbLLTjgodRQBFV9ePZaYXiel4pw8YKb8LESD+LMbqhcscdMXYMQRQfHV4kqrSUunsc+HEcZdKTaTwJdVPBlY4QS1HEEBhebgoHs8PyDf1nDCqpIxNMVZ/uqwy/3m7Q2F7Aigqj9wE4AG7Aynlkwh0gcDNoWDeg3ZGxtYEUFQWrgDRnXYGUMomEegRAeK7QosDFXZFybYEICe/XYeMlEs3AjYmAVsSgJz8uoeYrGB3BGxKArYjADn57T6SpXxJI2BDErAVAcjJn/TQkhWdgoDNSMA2BCC9/U4ZwVJOAxCwzemALQhA3OgDKcsMAFY2IRFwBAIMLq4JBtL+TFnaCUBE+LFKL8ogH0eMWymkcQjYImIwrQTw4/K60Sp878rJb9yoki05BwEG76cYfy/0VP7adEmdNgKI3+pTlXfkxZ50mV72awsEiD+Dop6drluEaSGA9oc6+v1ZXum1xRCUQqQZAQY+VP3NZy5b2L/BalHSQgCF5eEVBPqB1crK/iQCdkVABb++a2De5LfuojYrZbScAArLwveSTONlpY1lXw5BgJnn1licXsxSAiieFpnMjJccYg8ppkTAegRYnRKy8BqxZQQQf61Hob9Kj7/1Y0r26BwExMmAQvRv1YvzNlkhtSUEIJx+zRn93pd5+60wqezD6QiIdwfUjJaxVjgFLSGAwvLws/LFHqcPSym/lQiIF4hqKgNXmN2n6QQg3upTgafNVkS2LxFwGwIx4Eqz3yI0lQBEsA9ivo/lvt9tQ1PqYwUCwh/gVzHGzCfITCOA+L7f1/ct+US3FUNF9uFaBFRevXNQ3niz4gNMIwB5t9+1Q1IqZjUCJuYQMIUA5CUfq0eI7M/NCDAQBfPZNZWB94zW03ACiC/9/f2EoKcaLaxsTyLgVQTE0WBO677RRr8/aDgByKW/V4eo1NtsBMwIFTaUAOTS3+whINv3MgJiK6AQTjEyStBQAigqD9cC9B0vG0nqLhEwFQGVV4eWBE43qg/DCKCofP90gH9tlGCyHYmARKBrBJhQXrM4r9IIfAwhgCkzGgb4WmPrQHSMEULJNiQCEoEeEajLjsaGVlUV1KeKkyEEUFgeWUTA1akKI+tLBCQC2hBg4MmaYN50baW7L5UyAUjHX6omkPUlAvoRMMohmDIByPRe+o0na0gEDEGA1bdDlfkTUmkrJQKQGX5SgV7WlQikjoAK9ftLg/krk20pJQIoKo+skxF/yUIv60kEUkdAZBT+amCfMcleFkqaAArLw0UEqk5dBdmCREAikCICV4aCeVXJtJEUAcgUX8lALetIBMxBgMF//2pg3ohkVgFJEUBReaQEMsuPOdY8pNXcHOD443w4YZCCr3arWP9RzPQ+jehg7OgMHHO0gh1fxPD37SoaGtiIZmUbPSOQ1CpANwHIr78549CfAQwd7MOwIT4MHaxg6Ak+DOivfN1ZfVjFjXccQGOTOf0b1aogrYfu7oX8wD9l371HxdbtMWzdruJvW8V/Y2hpMapH2Y5AINlVgG4CkF9/YwacmPDDh/kwcrgPJ50oJr0Pmf6ezfH8Ky144bVWYwQwqZWfTM3CDydm9th6LMZxMvh4cxs2fhLDpi2SEAwyh+5VQDIEID3/SVpLLOVHjczAySPbJ36iCd+5mwONjOvnNNh2FRDIIzx2fy/derVGGVu2xuJbnPUb2rB9h5okwt6ulswqQBcByHN/fQNMUdq/8mJPfNroDBx91D+Xxfpa+mdpO68CtHz9tegttgxr1rXhgw/b8PHmGFTJB1pgay+j82UhXQRQVB4RmX7GaZfGeyU7Jv0Zp2Vg3Bg/8vrogjghYHZdBST79U+k8P4GjpPBqjVRbNjoDCdoIp1M/V1ndKDm0VlYFj6diFaZKryDGz92gILvjfdj3BhjvvQ9QWHHVUDRxVm46Lye9/6pmndvnYra96JYtUZuE3rCMkY4a9nivFoteGsmgKKy8HIQXaSlUa+UER7vcd/2Y+LZ/rgTz6o/sQq45qYGRDs9JJ2VBRzdT0Gf3hT/l59HyM4mCDnFf7OzxD9A8XVt9miUEY0CzS2M5mZGcwsgvsCNjYz6SPu/cFg9wgchHJq/frA3euVqHk4pQyVOE95+N4ra1VF5otAJTQY/VxPU9qqQJovF7/tH1a3ygY92pMUZ94WT/PHJb+WgP9TOYvALIhg4QEG/AopPfDHJrfgT/daHOR6bsHuvitwcwlmn+63o+og+BFH9qTaKd96NSufhQXTETcEMzhj6XGXujkRG0TRiCqfVzyZW7k/UmNt/P+WbPlw0KRMnDc9wu6qO1G/dhjb88Z0o1q7rtDRypDYpCs18V6gyUJGolYQEMOFOzhjweXgbSDkuUWNu/n3GVdlp+8q5GVczdFv5dhRLnms2o2nHtMng7V8NzBuWKDw4IQEUXx2exCq94RjNTRD0jLEZuH5ajgktyybNQmD+44344ENvnxow8KOaYN5rPWGckAC87vwTx1vzbs89LLTVrEEr2zUOAXFiMKvC/qHTxmncVUv8cigYmJw0ARRPixzFjP/zsvNvekk2zjkzPQ4ucweH+1v/U20rgs9499KBcAbmRGP9e0oe2uMKoLA0PJMUetz9Q6VrDUee6MMdN+V6VX1X6F0xvxGbt3h3KxAjvm7Z4sAT3RmzRwLwcuSfONsWt9qMCN91xUxyqBJffKli9j0HjoiZcKg6usVm5r/UVAbG6iaAoul1gxHzfaq7R5dUmHpRJi4+P8sl2nhbDTtGTlpqkWhsSKiqYFtXfXa7AvDy2f+ggQrm3pqr+1abpUaVnWlGQNw2FA7Br3Z7NDGJiptDS/Ie1EUAXl7+3zwzB2NOkcE+mmeYAwqKa8bzHrN5NhWTcOxpG9DlCsDLy39xdffGGfLM36SxmNZmvRwb0MrR41+s7HdEaHDXBODRhz6l4y+t89P0znfuak+r5sX8Asz8i5rKwCOdQe6SAP5x9XfFP67+/sB0i9isg/PO9eOnhdk2k0qKYyQC1S+24JUV9k6rZqS+HW2p4NeXBgMXJCSAKTN29fZFs3d5LfhHRPyJY7903e4zw+iyzSMRsGtCFQts1RTzN/dftrB/w6F9HbECKCyPXEDAqxYIZKsujEpnZSulpDBdIvDfK1vxm6XeixDs6m7AEQRQXBp+hBX6uZfGjlnprLyEoZN0FVmJhS/Aa8eCrPKjNUsCN/S8AiiLbCLCcCcZNFVZZbx/qgg6r75IqLKoyltXhol4c/XiwIhuCWBKScMAn1/90nnmTF5ikVHn/ttl0E/yCDqzpldXATG/cuyyhb13dljtsC1AYen+IlLYUw9+yq+/MyewEVJ7cRXA4OKaYCDUJQFMLQs/oRBdawS4TmhDfv2dYCXzZPTiKkBlXrC0MjCzSwIoKo946tWf0suzMfEcedffvClm/5a9tgpg8Ec1wcCoIwjg4Pn/PgCemBHS82//yWmFhF5bBYgkIaq/uW9HPMDXPoCisroJIN+bVoBuhz7kub8drGAPGV5+owWhl7wTHahC/f7SYP5Kgf4/CaA0chMUPGAPk5grhXgoY8H83vGHMuSfRMBr0YHM6pyayvx5hxFAYWnkeVJwqReGg4z594KV9en47LIWvP4Hb6wCmLmmpjJQdDgBlIU3ENE39cHmzNKP3SdTfTnTcuZJ7a2bgvy3UDBw4tcE4CUHoLzvb94kcnrLXskX0J4teG9eVdWQ5vgmuOiq+rHwKWucbkAt8v/H9TkYPUpm+9GCldfKeClrUAyxby0LFqxrJ4DySAmAp91u8KP6ER6/v7fb1ZT6JYmAOBK84bYD2LPX/bkDifkn1ZWBZ+MEUFhW/yCRcmOSuDmmmhVv2DsGDClolwh4JYMwM8+tqQzc1k4AHjkBeOI/e6FfgSKHvkSgWwR271HjqwC3pw1j8Ms1wcDkdgIoj4i9wKluHhfiae85P5ev/LjZxkbpdv+jjfjrR+5+TYiB9TXBvNHtPoCyyD4QCowC0I7tyFt/drSKPWXywv0ABvbXBPPy6OADoLvtaQpjpBLZfhc/LCP/jEHT/a2IyMBrbmpw/XNizdFYAU0prxvtg+8DN5v1jLEZuH6azPXvZhsbrdtDC5uwdl2b0c3aqj1xFEheSAL6yxnZOG20Jy452mqAOVmYd9dE8XjQ3SnDRJJQKiyNlJGCoJON1ZPscvnvVsuaq5c3tgF0DRWV778N4HvMhTN9rX/rZB9mXSe9/+mzgHN7dntosAq6naZOCz+hsHvTgEnvv3MnYLol/1NtFMFn3LsNUIkXUGFZ+FkiujzdYJvV/68f6IX8gDOCf0QQyrbPYvFQ1ANNjD69CPkBwrAhPvTr6wwdOuy4t07F1m3tujS3MHJznKeL0GHmfxwwa2imv13mGkEArn0HcMgJCu67tVf6ge5BArHXfLM2ijdrW/HFzu5j0E8YpOCcM/347ll+2yYy6dCl9r0otu9Qu9XaCbp0CH/r3APYur17XWw9uBIIx8y/o6LS8HtQaJyTFelO9sk/zETh5CzbqiYCTp6paUajjmfrRS7Dy36UiYnnZNpKLzfpciiwrk4UovJqKi4Lb2IiV74EdPuNOThpuP2u/jY3MxY8Jc6Zkw83HXtqBq6blo1Mf3rTmrVGGQuWNOPP7yd/Zm4XXbpi1I83t+Geh3QwtK1ouWdhRIZgKiqPbAUwxEFyaxI1KwtY/KveaZ8gnYUVk3/eY03YvCX5yd/R5onDfJhzfQ6ys9NDAmLyz3u0CRs/cb4u3Q0qoWPZz10bFfgpFZZFdhHhaE2zykGFRo304dZf2Ov4T9w3f+CJJqw38KLJqBE+zP55Dnw+a0nATbokGtZ3P9hoCMkl6icNv9eJFYB4C8B1F4GmXpSJi8+31/7/+Vdb8MKrxieevHBSJoovsVbXl15vwdKX3aFLoolnlt0S9WvB73ECcGX6E7vt/8Xx3h33N5pywURRgPl35uK4Y30WjBlAJNCcVXHAFbpoAezDjW2472H3+QFEbkBXEoCYEEsetdftP7Mvl1iZ7NRNumghAOG3Kb2hwZVJQlxJAIMG/uOFkwr7nP+LAJ/rbzE3oESQ3kN398KA/uYGDFmVMefhe83XRcvk7yhzc8UB7PjCffEAriSA7473Y9pPs/XY19SyZu2XOwtthd/Dqme00uHX6GkQ/PrpJryzKvmjTlMHWAqNu5IASoqz8IPv2idQxqposmFDFNwzx9yVT8X8RkOOMBONWREtOO8Oc3VJJMOhv//uzVZUVbfoqeKIsoIAhCvXVZfl756di28MtcYhlsjKVu4fxTbg6cfNi30QR39XXmfNmbjZuiSyW+ffN/2tDXc94D5HoCuPAcUksMvDn8L7P+eeRr3jLeny4jTg+OPMIb/PPo9h1l3W6XL/7bkYfLw5uugFWNxzKLuhQW81u5d3XxyA3R7/eP+vbfHgH6v+bvlFDk4eaU7487oNbfjPx6zTxW6vOF07qwH76t10as67XRcKbLcEIGvWteFXC62bNL+ckYPTRptDAG7SJRlCnvurRmzYlHrYczJ9m1RHhAK761XgSef68bNC+5wAWD1pzPxqWq3LzTNzMOYUc8gsmQklbm6+8cdoMlXtWmej664D2+0EwOrbZHNvycXQwebsm/+2NYY75lnnA7CTM1fM4P9e2YrfLHXRSYC4Duy2hCBmfgGToXGrs8o8+VBv5PUx52KQm3RJxpZW+0CSkVFPnfaEIGXhEIgK9VS0c1m7RZAJrKb9sgH7G8x3Hh1zNOGRuea+fjz9pgaELbg+0jefsGC+ubroHcdWn4LolU9veQI/57qkoP+1wLxzcL0Ad5RfsKQJtavNjyI7+ww/rrnSXP+HVRFxVuii154iN8DPrnXPUWA8Kaib0oKLdFmLHrTXV0MMMquOAq3Y/rhJF70E0L6a24/9LuGAeFrwovL90wH+dTJg2K2O3cJHO/AREXQ33nEAX+02bxtgVfyDFbr0LSCIrVy60511Nb7ddCmICOWuehrMzk+Am/3ibPlPsvG9s6yJ6DZbl9LLszHxHGt00fsRc9PT4fGnwdz0OKgd942HrgLERZotnxp/pdTqlY9YBZipy91zcm359Re2fGxxE1atNd+fo5eYkikffxx0ckldfrbfV5dMA3arc/73M3HFFGtTY+nB4IsvVdxy3wG0GHiULN4+nF9h/d15s3SZe6t5dxn02Kq7sm4KBhK5QOMHxsXlEXGw08cIgNLZhhX34VPVb/2GNsx/osmQ7DLixtysmTk4dVR6ouWELiI7UNSAD6LQ5cYZ9or868rWVuV2SHWcJarP4LqaYKBvnAAKyyPrCDg1USW7/156eZbtHszoCjPhSX9kUWoTR3z5ryvPwWnfSs/k79DLCBIQulxbmoNx306vLlrG9xsrW/GMC6IBGVhfE8wb3U4AZeHlRHSRFgDsXMZJD4GKsNrHgk3xt/P0/g0coEDoapecB+INwIefTE4XcXpxfXmObXRJZAuzHaCJ+jfqd1bxQs2SvMvatwBl4XuZ6FajGk9XO2behDNDJxFY8sbKKF5Z0aLpebDcHOC8czNx4XmZtnOSCV1+/6bQpVVT1KOddenJ1lZfiDJj3Ik2mdWHairzb4oTwNSy8BUK0W/M6syqds28C2+mDmLyrFrThg0b2/D37Sr27FHj+2qxNBZn4uJL/61TMjDm5Iy0vQKkVX+hy5//0ob1H7Vh22cqvtp1uC7iotKp38yAyGLcK9ecOwtaZU2mnHvuA8SuDAULquIWcMtRoN3eAkhmgMk69kbA6tudpqGhqKeFnsxfGyeAkpJPs5v9/SJOzw1456wcjBhmf0eSaUaVDZuOgBsIQDwIovqb+y5b2L/h6zVYYVlkCxH+1XQETezATjnkTFRTNp1GBKzO8WiGquJV4JpgYJRo+xACCIfI4deCJQGYMVxkm4ci4AoCOHgC0IkAIrOJcL+TzS0JwMnWc4bsbiAAADeHgnkPHkYAU8vrJypQ/uAMM3QtpSQAJ1vPGbK7ggCYvhuq7PPWYQQwZcau3r5otngq3J7XsDSMD+kE1ACSLJISApu2tOGu+dZleU5J2C4qH+oAPIwAxP84PUOwPAY0erjI9joj4IJTgPWhYN7oDr0Oi8SYWhZ+QiG61qlmd2ogkFPx9qLcH25sw30PO3cFoDIvWFoZmNklARSW7i8ihaudalinhQI7FWcvy+30UGAGF9cEA6EuCWBKScMAn1/90qkGnnFVNs463bEuDKfC7im5a9+LYsFTzY7VOeZXjl22sPfOLgmg3Q8Q2USE4U7U0G6PgjgRQylzzwisfLsVS54zMKOLhYAT8ebqxYERh3Z5xG2M4tLwI6zQzy2Uy7Cuii7OwkXnZRrWnmxIItAZgZffaEHopVZHAkMqP1q9JHBDjwRQWB65gIBXnajhhZMyUXyJfVOCORFTKfPhCFS/2BK/8uzEP5EEtCaY91qPBHAwHmAXgBynKXnu2X6UXWHuwxh6MRHXY8WV2OOPM+e9Pr3yOKX87j0qAgGyXd6Dxc80481aJz4QqjbF/K39xQWgHglA/Di1PPyaAjrfKYOlQ05xx1zklbPLn3hLb8GSZmz8JBa//z7xbH/a8vfZBZNEcohzdvGF/XBjDMOH+XBtaTb6FSiJqln2u8iBuHadAUkQLZO4vSPxDmBNZWBS5267zMhQXBa+gYketljGlLsbNkTBPXN6pdyOEQ2IXHnia7Gv/vCUXyKF9zln+nH2mX5HJsQwApvObRxoZNSujkLk2+v8eIp4I1CkPzv5JHtc8779/gOmpHY3A9dD21ShXrM0mL9IEwFcUrZ3UCb5PzNbKKPbF2mmbr8pF4OPT/9yW2SPfen11m4z5opsP2ec5seZp2Vg1EgffD7nZcdJxX7ibYENG2PxiS/O1rtLlS5seuGkLFzw7/60YyTyOM57tFFT+rZUsDGlri82JLSoYJsmAhCFCsvCa4no26YIY2KjYmIJR+B5E9N/GlAfVrH05VaIs+OeUmeLtF/jxmRg3Bg/hn8j/eRllnnEpN+6XcW7a6L48/tt2FfXfUJUkSZcrJREqvf8QHq3AEJusS15/tVWQ9K5m4Vvt+0yVoUq887s6vduPztFpZGboOABy4U1qMORJ/pwTUk2jj4qvYNHqCNukL3waqumvaN44FTkzBMpsk860Wf7HICJzCWW9xs3t+H9D2PxR1ITPS0uJv74cX5cfH4mBvRPv+0+/zKGRVXNjlz2d9iGSZ1Tszh/nj4CKKkbDL/v00QGtvPvWVnAlcXZ8S+JHf4EEYgvydoP2jQ9piFWMyKJ5qgRPpw03IehJ9ifEMSpx+YtMWz+WwwbNsUgls2qhtfQ7DbxxVf/jT9GsXR5iyZb2WF8dStDN8t/Ub7HjadTtwGdgbDTakDIJrYGr/2+NX6c1KjjXomYJMcPVOLe8ROO92Hw8QrEGwHZ2enxH4jJvuNzNb7CEUv77Qf/q2XCd9ioIz24eAw03Uv9Dpnc8NX/eg70sPxPTACl4Zmk0OO2ZjeNwnX4Bs49x2+bs+WOdOAivDTZR0MFKRzdj+JEcEx/Jb5sFp5zsfXp05uQn0dJO8/EV3B/A7CvToU40ty9l7F7r4ovdran+xb/r2eyH2oqQcrfHd/uBLWLA1TYY/nrrXFyNuK5M41D09RirPJ1NUsCT3TXSY+fjpKSuvxmv08EBdljDW0AVOIYrvQK+7yq06GSmddMxVYorzchK4vQKxdQFEEKQHZWu/mbWxixGBCNcnzgNzYyxN5dz+pEj2nuvSUX/zrYXs5OcWz7dHXzEceQevSyX1m1iUj5l+rFeXuSIgBRqbA08jwpuNR+yqUm0fhxGbj8sizbLDvd9OpsIstcekEmLrvQHiHbO3epeO75Fk0O2kR62e93fjkUDEzuSa6Em0cn3w1IZBCxLbj0R+LIML3bAuETuH7OAdcsO7Xg/vDcXmmN8BMrnNd/767lfmfcSeHzqp8MrEiJACbcyRkDPo9sAdEJiQzr1N/F0ZuIHUjXacGCJU2oXe288NJU7H32GRm45krrw7aFX2PlO+3efbO2OKngYlRdJv7sq2Pzhr51F/U4sBKuAIRARWXhChDdaZRwdm1H+AfEisDKJ7ddkWU2CYMK52XFrFzLXgUWE1+QrIjQ7BxunIT4tq/S09n/ocJrIoCDocFb3eQM7MmCVhLB7LsPYPsODQflth9y+gUcNsSHe+bk6q+oo4bXJn47NOLmX8bQQzP/JO0E7KhYWBZ+logu14G944uaTQROzi5jlHHLf5KN751l/CGTNyd+h1USO/86SmpaAYjCU6ZFxvsY/2OU4Z3UjjhjF1cq1QP0AAAKeElEQVR5jYwhEI6/2fc0JgyNdRJOycgqAoEeubc3+vTRPBR77EY49wSxin3+nr3d3zVIRlbH1Dn48q8WeXWhXlRW/xZIOUdLw24sI5yFwlF43rmpR609FmzCqjXecvx1Nya+My4DM0tTcwiK47zfv9mKt9/VF13punGaIPKvs756CeAykLLMdaDpVEgcH546KvkEH+I23ONB52aW1QmXpuI3z8zBmFP03fkXy/z1H8XieQQ+/kTbnQNNwji4EBEurl6ct1yrCroI4OCR4CYQOfoZca3gaCknwnDPPTsT40/P0HSuLZf+XaMqwpfnV/TSlCRFfO3Fl17kEvDsMr8rGIk/CC0OjNEybnX7ADoqFJVHSgA8racTL5QVx1onj/TFk3yIu/3dXdB5eFFT/C68/DsSgZ5Suom9/ao10fjET/behPsxj10ZChZU6dFT1wpANCxXAYnh7dgiCCIQg7qDDKTXPzF2Iv1XR0CWmPQi/97qv0TjS/1kLx4l7tX5JUTO/6zWfaOrqobo2lvqJgABlVwFaB8wggzEXf5RIzPccbdcu+pJlRR4TT4/Exs3x+S+XheC+r/+ovmkCECuAnRZRhaWCJiKQLJf/6QJQK4CTLWnbFwioAuBzg9+6qmc1Arga1/AF5F1AH1TT4eyrERAImAgAkl4/g/tPWkCEI1MLa+fqED5g4HqyKYkAhIBHQjoPffv3HRKBBDfCng8OlCHrWRRiYChCDD4dzXBI1/70dNJygRwaUlkhN+Pv3rlpqAecGVZiYB5CKhNCvjM3wYL1qXSR8oEIDovLI8sIuDqVASRdSUCEgHtCDDwZE0wb7r2Gl2XNIQADiYPFfkCClIVSNaXCEgEEiLwZcyvjNFy3z9RS4YQgOikuDRSxgqCiTqUv0sEJAKpIqBeE+rioc9kWjWMAOIOwdLwe1BoXDKCyDoSAYlAYgQY/L81wcD4xCW1lTCUAKRDUBvospREIDkEjHH8Hdq3oQQgGi4sC99LRLcmp6CsJRGQCHSLAPFdocWBCiMRMpwASko+zW7J6LuOiYYbKahsSyLgaQSIP8hu3Xem3tt+iTAznAAOrgJOJ6J3ZGxAIvjl7xIBLQgYv/Tv6NUUAog7BKeFK8Duf0tAi/lkGYlASgiYsPQ3nQDiV4Z3RGrlqUBKppeVvY6AyquzY/smGL30N50ARAdTSsPDFAXvE6iP1+0o9ZcI6EdAbYKPTwotKtimv662GqZtATq6LyqvKwF8MoegNnvIUhKBQxBILsuPHghNJ4C4P6AsXAWin+kRTJaVCHgZAQY/VxMMXGE2BpYQgDwaNNuMsn03IUDMm7Pa9Cf4TAYDSwhACCaiBDP8/GfpD0jGTLKOdxBQm2IqnbJsSWCLFTpbRgDtW4F6+bKQFVaVfTgWAaLYxdWLCzS/7JOqopYSgBBWhgqnajJZ360IMPPcmsrAbVbqZzkBiPiA/l9Eliug861UVPYlEbAzAkak90pGP8sJQAg5Zcau3r5o1nsyo3AyJpN1XIjA+uzo3tPNCvbpCa+0EEDcHzC9bjC3US2RcpwLDSpVkghoQoChfk4+Hm9msI8tCSBOAlfVj2Uf/UmeDGgaK7KQ6xAw75KPVqjStgLoELD46vAkVvlFQMnRKrQsJxFwPgJqEyl0SfWTgRXp1CXtBBA/GSgPFxGoOp1AyL4lApYiwOqUUGX+85b22UVntiCA+HagtP4mKMoD6QZE9i8RMB0BFTeHluQ9aHo/GjqwDQHESaAsXAGSOQQ02E0WcSoCJt7tTwYSWxGAJIFkTCjrOAYBm01+gZvtCECSgGOGsxRUDwI2nPy2JQBJAnpGlixrewRsOvltTQCSBGw/rKWAWhCw8eS3PQHI0wEtI0yWsS0CNvL2d4eRLX0AnYVtv0aMZ2SwkG2HuhTsMATUJgZdVRMMhOwOjCMIQIAoIwbtPpSkfAIBBu9XFExNd4SfVms4hgCEQj8urxsdY3pNXiDSal5ZzkoE4hd7Ypgceip/rZX9ptKXowgg7hOYXjcYMZ/ImHJqKorLuhIBQxFg/ggZ6gXputWXrC6OIwChqEgy2uTvu5xAP0hWcVlPImAUAir4dfa3FC1b2L/BqDataseRBNABjkwvZtUwkf10h4BI4/XVcXkVb91FbU5EydEEEHcOTqubzEy/lScEThx+zpVZOPuI+So73OhLBUXHE4BQXjxBlkF4TT5JnspQkHW1IiDy9rcqNPmFxXmbtNaxazlXEMDXfoGMvpVEdLldwZZyuQAB5v/Kbts3PR35+8xAzzUE0AFO+1uEtFBuCcwYLt5tM77kh3p9KFhQ5SYUXEcAwjjxo8KoEpJPk7tpqKZRF5VXx4ArrHqtx0pNXUkAHVuC5oy+s0E8S64GrBxSLuqLOQrgvp3H5d3rVC9/Imu4lgA6FBfRgyp8YtkmA4cSjQb5+9cICEefCpTUVAbeczMsricAuRpw8/A1QTfmKAPzc9r23esWR19PKHmCAA5dDcSgPEGg75gwdGSTTkdA5dVRH5W44XhPqyk8RQD/PCmonw4mkYD0GK1AyXIuRoBRR6zOql6SX+liLbtUzZMEIJCYMmPXACWaXUFQfyqdhF4b9gf1Fct9oqdyorHZVVUF9V5EwbMEcNi2gJV5RPJikacmAKtvRxVlupeW+13Z1/ME0AFK+50CX4U8LXA3DTCrHzLhl0uD+Svdrak27SQBdMJJPFOmMCrkvQJtA8gxpZj/DlLv3Tkw/1m3nuknYwtJAF2gJvINNPvzi4iV2ZIIkhlWNqojJ36PxpAE0AM8HUQA+G6QWwMbTWotosiJrwUle74MpElyiwvFfQQxZba8X2Ax8Hq7Y/VtAE/sPC6wXC71E4MnVwCJMTqsRNFV9WOh0G0g/nd5fKgTPLOKx4/zsFQlWrRscV6tWd24sV1JAElaNR5H0JpZQsBMkHJcks3IaqkgwLwdQJUPbZXPVfbbkUpTXq0rCSBFy0+4kzOO3RGZyITpclWQIphaqouvPdMrUFD11cA+K+QyXwto3ZeRBJAafofVLp4WOUoFF1EMV0hfgYHAiqaY1zDjmZyY+qxXo/YMRjTenCQAM1A9mJSE26iImCZLMkgSZOY1YFoKf+x5p+XbT1Jjy6tJArAA8vbHTGgSM00m4rOl87A70NUmFfQnH2NlC9qef1Hu600fnZIATIf48A6mzNjVW4lmT1BUnqgSJhHRcItFsFV3zLxZYaxQFVqZE9270gt38O1kAEkAabZG+63ErAlMGK8wjQfzSSDyp1ksc7pvT7bxCSt4ixi1qr/lrWUL++80pzPZqhYEJAFoQcnCMmKF4Gv1jwX7xjJwOohHEHCi40gh7q3HNvLhfVZ5HRPWsr/1PSc+n2Wh+S3vShKA5ZDr7zBOCs2ZI+BTRjGro8DKYFIwDMz/AqIC/S0aV4OY9zPRVjBvI2BDDNiUQeqGzGj9JrmcNw5ns1qSBGAWsha1K44eiWODYvANgooBpPAAEAawivx/hMQeRYx8EOUByGZwbyJkAF2QhsiAS2h/3JKpnoEGYm5kQj0B9VCwB4ydAO9hKDt8iO1ojGLbco8m0rDIvKZ38/+gS+v0bi/svwAAAABJRU5ErkJggg==" type="image/png">
+      <link href="../discord/css/12633.ae30c7f648fe67701828.css" rel="stylesheet">
+      <style type="text/css">.SpriteCanvas-module_spriteCanvasHidden__ndzQV {
+         display: none;
+         position: absolute;
+         width: 0;
+         height: 0;
+         left: -100%;
+         }
+      </style>
+      <link rel="preload" href="../discord/fonts/8234e0a75aa9afb205bd.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-rh="true">
+      <link rel="preload" href="../discord/fonts/b21c5111a12372139409.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-rh="true">
+      <link rel="preload" href="../discord/fonts/8bd8143eff37936894aa.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-rh="true">
+      <link rel="preload" href="../discord/fonts/452d7be36bf4b23241bd.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-rh="true">
+      <link rel="preload" href="../discord/fonts/48a594e29497835802fe.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-rh="true">
+      <link rel="preload" href="../discord/fonts/f5b8aa3411dfc24ff2e6.woff2" as="font" type="font/woff2" crossorigin="anonymous" data-rh="true">
+      <link data-webpack="discord_app:chunk-56999" rel="stylesheet" href="../discord/css/bba37d2e14f177f01bc9.css">
+      <style data-emotion=""></style>
+   </head>
+   <body>
+      <div data-live-announcer="true" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); margin: 0px -1px -1px 0px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap;">
+         <div role="log" aria-live="assertive" aria-relevant="additions"></div>
+         <div role="log" aria-live="polite" aria-relevant="additions"></div>
+      </div>
+      <div id="app-mount" class="appMount_ea7e65">
+         <svg viewBox="0 0 1 1" aria-hidden="true" style="position: absolute; pointer-events: none; top: -1px; left: -1px; width: 1px; height: 1px;">
+            <mask id="svg-mask-squircle" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <path fill="white" d="M0 0.464C0 0.301585 0 0.220377 0.0316081 0.158343C0.0594114 0.103776 0.103776 0.0594114 0.158343 0.0316081C0.220377 0 0.301585 0 0.464 0H0.536C0.698415 0 0.779623 0 0.841657 0.0316081C0.896224 0.0594114 0.940589 0.103776 0.968392 0.158343C1 0.220377 1 0.301585 1 0.464V0.536C1 0.698415 1 0.779623 0.968392 0.841657C0.940589 0.896224 0.896224 0.940589 0.841657 0.968392C0.779623 1 0.698415 1 0.536 1H0.464C0.301585 1 0.220377 1 0.158343 0.968392C0.103776 0.940589 0.0594114 0.896224 0.0316081 0.841657C0 0.779623 0 0.698415 0 0.536V0.464Z"></path>
+            </mask>
+            <mask id="svg-mask-header-bar-badge-top" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="1" height="1"></rect>
+               <circle fill="black" cx="0.75" cy="0.25" r="0.25"></circle>
+            </mask>
+            <mask id="svg-mask-header-bar-badge-bottom" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="1" height="1"></rect>
+               <circle fill="black" cx="0.75" cy="0.75" r="0.25"></circle>
+            </mask>
+            <mask id="svg-mask-voice-user-summary-item" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" width="1" height="1"></rect>
+               <circle fill="black" cx="1.2083333333333333" cy="0.5" r="0.5416666666666666"></circle>
+            </mask>
+            <mask id="svg-mask-vertical-fade" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <linearGradient id="svg-mask-vertical-fade-gradient" gradientTransform="rotate(90)" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0%" stop-color="white"></stop>
+                  <stop offset="100%" stop-color="black"></stop>
+               </linearGradient>
+               <rect fill="url(#svg-mask-vertical-fade-gradient)" x="0" y="0" width="1" height="1"></rect>
+            </mask>
+            <mask id="svg-mask-panel-button" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="1" height="1"></rect>
+               <circle fill="black" cx="0.75" cy="0.75" r="0.25"></circle>
+            </mask>
+            <mask id="svg-mask-channel-call-control-button" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.8214285714285714" cy="0.8214285714285714" r="0.25"></circle>
+            </mask>
+            <mask id="svg-mask-channel-call-control-button-badge-16" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.6428571428571429" y="-0.07142857142857142" width="0.42857142857142855" height="0.42857142857142855" rx="0.21428571428571427" ry="0.21428571428571427"></rect>
+            </mask>
+            <mask id="svg-mask-channel-call-control-button-badge-22" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.5357142857142857" y="-0.07142857142857142" width="0.5357142857142857" height="0.42857142857142855" rx="0.21428571428571427" ry="0.21428571428571427"></rect>
+            </mask>
+            <mask id="svg-mask-channel-call-control-button-badge-29" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.4107142857142857" y="-0.07142857142857142" width="0.6607142857142857" height="0.42857142857142855" rx="0.21428571428571427" ry="0.21428571428571427"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-default" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-status-round-16" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.8125" cy="0.8125" r="0.3125"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-round-16" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="0.7604166666666667" cy="0.7604166666666667" r="0.2604166666666667"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-status-mobile-16" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.5" y="0.3125" width="0.625" height="0.8125" rx="0.1625" ry="0.1625"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-mobile-16" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.5" y="0.34375" width="0.5208333333333334" height="0.6770833333333334" rx="0.1625" ry="0.1625"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-typing-16" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.21875" y="0.5" width="1.1875" height="0.625" rx="0.3125" ry="0.3125"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-typing-16" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.265625" y="0.5" width="0.9895833333333334" height="0.5208333333333334" rx="0.0968967013888889" ry="0.0968967013888889"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-round-20" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.85" cy="0.85" r="0.25"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-round-20" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="0.7916666666666667" cy="0.7916666666666667" r="0.20833333333333334"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-status-mobile-20" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.6" y="0.45" width="0.5" height="0.65" rx="0.13" ry="0.13"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-mobile-20" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.5833333333333333" y="0.45833333333333337" width="0.4166666666666667" height="0.5416666666666667" rx="0.13" ry="0.13"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-typing-20" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.375" y="0.6" width="0.95" height="0.5" rx="0.25" ry="0.25"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-typing-20" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.3958333333333333" y="0.5833333333333333" width="0.7916666666666666" height="0.4166666666666667" rx="0.0920138888888889" ry="0.0920138888888889"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-round-24" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.8333333333333334" cy="0.8333333333333334" r="0.2916666666666667"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-round-24" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="0.7777777777777779" cy="0.7777777777777779" r="0.24305555555555558"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-status-mobile-24" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.5416666666666666" y="0.375" width="0.5833333333333334" height="0.75" rx="0.15" ry="0.15"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-mobile-24" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.5347222222222222" y="0.3958333333333333" width="0.48611111111111116" height="0.625" rx="0.15" ry="0.15"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-typing-24" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.2916666666666667" y="0.5416666666666666" width="1.0833333333333333" height="0.5833333333333334" rx="0.2916666666666667" ry="0.2916666666666667"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-typing-24" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.3263888888888889" y="0.5347222222222222" width="0.9027777777777778" height="0.48611111111111116" rx="0.091772762345679" ry="0.091772762345679"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-round-32" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.84375" cy="0.84375" r="0.25"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-round-32" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="0.7864583333333334" cy="0.7864583333333334" r="0.20833333333333334"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-status-mobile-32" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.59375" y="0.4375" width="0.5" height="0.65625" rx="0.13125" ry="0.13125"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-mobile-32" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.578125" y="0.4479166666666667" width="0.4166666666666667" height="0.546875" rx="0.13125" ry="0.13125"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-typing-32" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.359375" y="0.59375" width="0.96875" height="0.5" rx="0.25" ry="0.25"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-typing-32" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.3828125" y="0.578125" width="0.8072916666666667" height="0.4166666666666667" rx="0.08875868055555558" ry="0.08875868055555558"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-round-40" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.85" cy="0.85" r="0.25"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-round-40" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="0.7916666666666667" cy="0.7916666666666667" r="0.20833333333333334"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-status-mobile-40" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.6" y="0.45" width="0.5" height="0.65" rx="0.13" ry="0.13"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-mobile-40" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.5833333333333333" y="0.45833333333333337" width="0.4166666666666667" height="0.5416666666666667" rx="0.13" ry="0.13"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-typing-40" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.375" y="0.6" width="0.95" height="0.5" rx="0.25" ry="0.25"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-typing-40" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.3958333333333333" y="0.5833333333333333" width="0.7916666666666666" height="0.4166666666666667" rx="0.0876736111111111" ry="0.0876736111111111"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-round-44" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.8636363636363636" cy="0.8636363636363636" r="0.22727272727272727"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-round-44" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="0.803030303030303" cy="0.803030303030303" r="0.1893939393939394"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-status-mobile-44" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.6363636363636364" y="0.5" width="0.45454545454545453" height="0.5909090909090909" rx="0.11818181818181818" ry="0.11818181818181818"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-mobile-44" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.6136363636363636" y="0.5" width="0.3787878787878788" height="0.4924242424242425" rx="0.11818181818181818" ry="0.11818181818181818"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-typing-44" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.4318181818181818" y="0.6363636363636364" width="0.8636363636363636" height="0.45454545454545453" rx="0.22727272727272727" ry="0.22727272727272727"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-typing-44" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.4431818181818182" y="0.6136363636363636" width="0.7196969696969697" height="0.3787878787878788" rx="0.0869203397612488" ry="0.0869203397612488"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-round-48" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.875" cy="0.875" r="0.20833333333333334"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-round-48" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="0.8125" cy="0.8125" r="0.17361111111111113"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-status-mobile-48" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.6666666666666666" y="0.5416666666666666" width="0.4166666666666667" height="0.5416666666666666" rx="0.10833333333333334" ry="0.10833333333333334"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-mobile-48" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.6388888888888888" y="0.5347222222222222" width="0.34722222222222227" height="0.4513888888888889" rx="0.10833333333333334" ry="0.10833333333333334"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-typing-48" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.4791666666666667" y="0.6666666666666666" width="0.7916666666666666" height="0.4166666666666667" rx="0.20833333333333334" ry="0.20833333333333334"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-typing-48" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.4826388888888889" y="0.6388888888888888" width="0.6597222222222222" height="0.34722222222222227" rx="0.08634741512345678" ry="0.08634741512345678"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-round-56" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.8392857142857143" cy="0.8392857142857143" r="0.19642857142857142"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-round-56" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="0.7827380952380953" cy="0.7827380952380953" r="0.1636904761904762"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-status-mobile-56" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.6428571428571429" y="0.5178571428571429" width="0.39285714285714285" height="0.5178571428571429" rx="0.10357142857142858" ry="0.10357142857142858"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-mobile-56" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.6190476190476191" y="0.5148809523809524" width="0.3273809523809524" height="0.4315476190476191" rx="0.10357142857142858" ry="0.10357142857142858"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-typing-56" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.45535714285714285" y="0.6428571428571429" width="0.7678571428571429" height="0.39285714285714285" rx="0.19642857142857142" ry="0.19642857142857142"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-typing-56" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.46279761904761907" y="0.6190476190476191" width="0.6398809523809524" height="0.3273809523809524" rx="0.08576920351473921" ry="0.08576920351473921"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-round-80" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.85" cy="0.85" r="0.175"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-round-80" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="0.7916666666666667" cy="0.7916666666666667" r="0.14583333333333334"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-status-mobile-80" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.675" y="0.575" width="0.35" height="0.45" rx="0.09" ry="0.09"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-mobile-80" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.6458333333333334" y="0.5625" width="0.2916666666666667" height="0.375" rx="0.09" ry="0.09"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-typing-80" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.525" y="0.675" width="0.65" height="0.35" rx="0.175" ry="0.175"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-typing-80" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.5208333333333334" y="0.6458333333333334" width="0.5416666666666667" height="0.2916666666666667" rx="0.08485243055555552" ry="0.08485243055555552"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-round-120" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.8333333333333334" cy="0.8333333333333334" r="0.16666666666666666"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-round-120" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="0.7777777777777779" cy="0.7777777777777779" r="0.1388888888888889"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-status-mobile-120" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.6666666666666666" y="0.5666666666666667" width="0.3333333333333333" height="0.43333333333333335" rx="0.08666666666666667" ry="0.08666666666666667"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-mobile-120" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.6388888888888888" y="0.5555555555555556" width="0.2777777777777778" height="0.36111111111111116" rx="0.08666666666666667" ry="0.08666666666666667"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-status-typing-120" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.5166666666666667" y="0.6666666666666666" width="0.6333333333333333" height="0.3333333333333333" rx="0.16666666666666666" ry="0.16666666666666666"></rect>
+            </mask>
+            <mask id="svg-mask-avatar-decoration-status-typing-120" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <rect fill="black" x="0.513888888888889" y="0.6388888888888888" width="0.5277777777777778" height="0.2777777777777778" rx="0.08429783950617281" ry="0.08429783950617281"></rect>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-16" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.5208333333333333"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-status-16" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.5208333333333333"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.8125" cy="0.8125" r="0.3125"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-typing-16" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.5208333333333333"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+               <rect fill="black" x="0.21875" y="0.5" width="1.1875" height="0.625" rx="0.3125" ry="0.3125"></rect>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-20" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.33333333333333337" cy="0.33333333333333337" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.6666666666666667" cy="0.6666666666666667" r="0.4833333333333334"></circle>
+               <circle fill="white" cx="0.6666666666666667" cy="0.6666666666666667" r="0.33333333333333337"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-status-20" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.33333333333333337" cy="0.33333333333333337" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.6666666666666667" cy="0.6666666666666667" r="0.4833333333333334"></circle>
+               <circle fill="white" cx="0.6666666666666667" cy="0.6666666666666667" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.85" cy="0.85" r="0.25"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-typing-20" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.33333333333333337" cy="0.33333333333333337" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.6666666666666667" cy="0.6666666666666667" r="0.4833333333333334"></circle>
+               <circle fill="white" cx="0.6666666666666667" cy="0.6666666666666667" r="0.33333333333333337"></circle>
+               <rect fill="black" x="0.375" y="0.6" width="0.95" height="0.5" rx="0.25" ry="0.25"></rect>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-24" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.4583333333333333"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-status-24" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.4583333333333333"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.8333333333333334" cy="0.8333333333333334" r="0.2916666666666667"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-typing-24" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.4583333333333333"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+               <rect fill="black" x="0.2916666666666667" y="0.5416666666666666" width="1.0833333333333333" height="0.5833333333333334" rx="0.2916666666666667" ry="0.2916666666666667"></rect>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-32" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.4270833333333333"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-status-32" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.4270833333333333"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.84375" cy="0.84375" r="0.25"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-typing-32" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.4270833333333333"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+               <rect fill="black" x="0.359375" y="0.59375" width="0.96875" height="0.5" rx="0.25" ry="0.25"></rect>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-40" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.33333333333333337" cy="0.33333333333333337" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.6666666666666667" cy="0.6666666666666667" r="0.4083333333333334"></circle>
+               <circle fill="white" cx="0.6666666666666667" cy="0.6666666666666667" r="0.33333333333333337"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-status-40" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.33333333333333337" cy="0.33333333333333337" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.6666666666666667" cy="0.6666666666666667" r="0.4083333333333334"></circle>
+               <circle fill="white" cx="0.6666666666666667" cy="0.6666666666666667" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.85" cy="0.85" r="0.25"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-typing-40" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.33333333333333337" cy="0.33333333333333337" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.6666666666666667" cy="0.6666666666666667" r="0.4083333333333334"></circle>
+               <circle fill="white" cx="0.6666666666666667" cy="0.6666666666666667" r="0.33333333333333337"></circle>
+               <rect fill="black" x="0.375" y="0.6" width="0.95" height="0.5" rx="0.25" ry="0.25"></rect>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-48" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3958333333333333"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-status-48" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3958333333333333"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.875" cy="0.875" r="0.20833333333333334"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-typing-48" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3958333333333333"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+               <rect fill="black" x="0.4791666666666667" y="0.6666666666666666" width="0.7916666666666666" height="0.4166666666666667" rx="0.20833333333333334" ry="0.20833333333333334"></rect>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-56" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.33333333333333337" cy="0.33333333333333337" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.6666666666666667" cy="0.6666666666666667" r="0.3869047619047619"></circle>
+               <circle fill="white" cx="0.6666666666666667" cy="0.6666666666666667" r="0.33333333333333337"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-status-56" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.33333333333333337" cy="0.33333333333333337" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.6666666666666667" cy="0.6666666666666667" r="0.3869047619047619"></circle>
+               <circle fill="white" cx="0.6666666666666667" cy="0.6666666666666667" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.8392857142857143" cy="0.8392857142857143" r="0.19642857142857142"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-typing-56" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.33333333333333337" cy="0.33333333333333337" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.6666666666666667" cy="0.6666666666666667" r="0.3869047619047619"></circle>
+               <circle fill="white" cx="0.6666666666666667" cy="0.6666666666666667" r="0.33333333333333337"></circle>
+               <rect fill="black" x="0.45535714285714285" y="0.6428571428571429" width="0.7678571428571429" height="0.39285714285714285" rx="0.19642857142857142" ry="0.19642857142857142"></rect>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-80" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.33333333333333337" cy="0.33333333333333337" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.6666666666666667" cy="0.6666666666666667" r="0.37083333333333335"></circle>
+               <circle fill="white" cx="0.6666666666666667" cy="0.6666666666666667" r="0.33333333333333337"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-status-80" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.33333333333333337" cy="0.33333333333333337" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.6666666666666667" cy="0.6666666666666667" r="0.37083333333333335"></circle>
+               <circle fill="white" cx="0.6666666666666667" cy="0.6666666666666667" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.85" cy="0.85" r="0.175"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-typing-80" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.33333333333333337" cy="0.33333333333333337" r="0.33333333333333337"></circle>
+               <circle fill="black" cx="0.6666666666666667" cy="0.6666666666666667" r="0.37083333333333335"></circle>
+               <circle fill="white" cx="0.6666666666666667" cy="0.6666666666666667" r="0.33333333333333337"></circle>
+               <rect fill="black" x="0.525" y="0.675" width="0.65" height="0.35" rx="0.175" ry="0.175"></rect>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-120" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.35833333333333334"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-status-120" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.35833333333333334"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.8333333333333334" cy="0.8333333333333334" r="0.16666666666666666"></circle>
+            </mask>
+            <mask id="svg-mask-diagonal-facepile-typing-120" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.3333333333333333" cy="0.3333333333333333" r="0.3333333333333333"></circle>
+               <circle fill="black" cx="0.6666666666666666" cy="0.6666666666666666" r="0.35833333333333334"></circle>
+               <circle fill="white" cx="0.6666666666666666" cy="0.6666666666666666" r="0.3333333333333333"></circle>
+               <rect fill="black" x="0.5166666666666667" y="0.6666666666666666" width="0.6333333333333333" height="0.3333333333333333" rx="0.16666666666666666" ry="0.16666666666666666"></rect>
+            </mask>
+            <mask id="svg-mask-status-online-mobile" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="1" height="1" rx="0.1875" ry="0.125"></rect>
+               <rect fill="black" x="0.125" y="0.16666666666666666" width="0.75" height="0.5"></rect>
+               <ellipse fill="black" cx="0.5" cy="0.8333333333333334" rx="0.125" ry="0.08333333333333333"></ellipse>
+            </mask>
+            <mask id="svg-mask-status-online" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+            </mask>
+            <mask id="svg-mask-status-idle" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.25" cy="0.25" r="0.375"></circle>
+            </mask>
+            <mask id="svg-mask-status-dnd" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <rect fill="black" x="0.125" y="0.375" width="0.75" height="0.25" rx="0.125" ry="0.125"></rect>
+            </mask>
+            <mask id="svg-mask-status-offline" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.5" cy="0.5" r="0.25"></circle>
+            </mask>
+            <mask id="svg-mask-status-streaming" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <polygon fill="black" points="0.35,0.25 0.78301275,0.5 0.35,0.75"></polygon>
+            </mask>
+            <mask id="svg-mask-status-typing" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" cx="0" cy="0" width="1" height="1" ry="0.5" rx="0.2"></rect>
+            </mask>
+            <mask id="svg-mask-status-screenshare" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect width="1" height="1" fill="white"></rect>
+               <path d="M0.5 0.71875C0.5 0.649716 0.555966 0.59375 0.625 0.59375H1.0V1.0H0.5V0.71875Z" fill="black"></path>
+            </mask>
+            <mask id="svg-mask-avatar-voice-call-80" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle>
+               <circle fill="black" cx="0.85" cy="0.85" r="0.2"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-call-icon" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5" opacity="1"></circle>
+               <circle fill="black" cx="0.85" cy="0.15" r="0.2"></circle>
+            </mask>
+            <mask id="svg-mask-avatar-call-icon-32" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <circle fill="white" cx="0.5" cy="0.5" r="0.5" opacity="0.5"></circle>
+               <circle fill="black" cx="0.8" cy="0.25" r="0.325"></circle>
+            </mask>
+            <mask id="svg-mask-sticker-rounded-rect" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <path d="M0 0.26087C0 0.137894 0 0.0764069 0.0382035 0.0382035C0.0764069 0 0.137894 0 0.26087 0H0.73913C0.862106 0 0.923593 0 0.961797 0.0382035C1 0.0764069 1 0.137894 1 0.26087V0.73913C1 0.862106 1 0.923593 0.961797 0.961797C0.923593 1 0.862106 1 0.73913 1H0.26087C0.137894 1 0.0764069 1 0.0382035 0.961797C0 0.923593 0 0.862106 0 0.73913V0.26087Z" fill="white"></path>
+            </mask>
+            <mask id="svg-mask-chat-input-button-notification" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect width="1" height="1" fill="white"></rect>
+               <circle cx="0.85" cy="0.85" r="0.25" fill="black"></circle>
+            </mask>
+            <mask id="svg-mask-sticker-shop-notification" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect width="1" height="1" fill="white"></rect>
+               <circle cx="0.9" cy="0.9" r="0.5" fill="black"></circle>
+            </mask>
+            <mask id="svg-mask-autocomplete-emoji-upsell-emoji" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" width="1" height="1"></rect>
+               <circle fill="black" cx="1.33" cy="0.5" r="0.5833333333333334"></circle>
+            </mask>
+            <mask id="svg-mask-event-ticket" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <path d="M0 0.12C0 0.0779961 0 0.0569941 0.00408726 0.0409507C0.00768251 0.0268386 0.0134193 0.015365 0.0204754 0.00817451C0.028497 0 0.038998 0 0.06 0H0.94C0.961002 0 0.971503 0 0.979525 0.00817451C0.986581 0.015365 0.992318 0.0268386 0.995913 0.0409507C1 0.0569941 1 0.0779961 1 0.12V0.45C0.986193 0.45 0.975 0.472386 0.975 0.5C0.975 0.527614 0.986193 0.55 1 0.55V0.88C1 0.922004 1 0.943006 0.995913 0.959049C0.992318 0.973161 0.986581 0.984635 0.979525 0.991826C0.971503 1 0.961002 1 0.94 1H0.0600001C0.0389981 1 0.028497 1 0.0204754 0.991826C0.0134193 0.984635 0.00768251 0.973161 0.00408726 0.959049C0 0.943006 0 0.922004 0 0.88V0.55C0.0138071 0.55 0.025 0.527614 0.025 0.5C0.025 0.472386 0.0138071 0.45 0 0.45V0.12Z" fill="white"></path>
+            </mask>
+            <mask id="svg-mask-guild-icon-with-channel-type" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <path fill="white" d="M0 0.464C0 0.301585 0 0.220377 0.0316081 0.158343C0.0594114 0.103776 0.103776 0.0594114 0.158343 0.0316081C0.220377 0 0.301585 0 0.464 0H0.536C0.698415 0 0.779623 0 0.841657 0.0316081C0.896224 0.0594114 0.940589 0.103776 0.968392 0.158343C1 0.220377 1 0.301585 1 0.464V0.536C1 0.698415 1 0.779623 0.968392 0.841657C0.940589 0.896224 0.896224 0.940589 0.841657 0.968392C0.779623 1 0.698415 1 0.536 1H0.464C0.301585 1 0.220377 1 0.158343 0.968392C0.103776 0.940589 0.0594114 0.896224 0.0316081 0.841657C0 0.779623 0 0.698415 0 0.536V0.464Z"></path>
+               <circle cx="0.9" cy="0.9" r="0.5" fill="black"></circle>
+            </mask>
+            <mask id="svg-mask-content-inventory-card-face-pile-avatar" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" width="1" height="1"></rect>
+               <circle fill="black" cx="1.33" cy="0.5" r="0.65"></circle>
+            </mask>
+            <mask id="svg-mask-guild-popout-activity-icon" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="1.33" cy="0.5" r="0.6"></circle>
+            </mask>
+            <mask id="svg-mask-clan-icon" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" rx="0.3" ry="0.3" width="1" height="1"></rect>
+            </mask>
+            <mask id="svg-mask-badged-guild-icon" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect x="0" y="0" width="1" height="1" fill="white"></rect>
+               <circle cx="0.85" cy="0.15" r="0.25" fill="black"></circle>
+            </mask>
+            <mask id="svg-mask-forward-attachment-pile-overflow" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <path d="M0.142857 0C0.0639593 0 0 0.0639593 0 0.142857V0.857143C0 0.936041 0.0639593 1 0.142857 1H0.554564C0.520632 0.962089 0.5 0.912025 0.5 0.857143V0.714286C0.5 0.595939 0.595939 0.5 0.714286 0.5H0.857143C0.912025 0.5 0.962089 0.520632 1 0.554564V0.142857C1 0.0639593 0.936041 0 0.857143 0H0.142857Z" fill="white"></path>
+            </mask>
+            <mask id="svg-mask-content-image-60" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="0.8666666666666667" cy="0.8666666666666667" r="0.23333333333333334"></circle>
+            </mask>
+            <mask id="svg-mask-content-image-72" maskContentUnits="objectBoundingBox" viewBox="0 0 1 1">
+               <rect fill="white" x="0" y="0" width="100%" height="100%"></rect>
+               <circle fill="black" cx="0.8333333333333334" cy="0.8333333333333334" r="0.2777777777777778"></circle>
+            </mask>
+         </svg>
+         <svg viewBox="0 0 1 1" aria-hidden="true" style="position: absolute; pointer-events: none; top: -1px; left: -1px; width: 1px; height: 1px;">
+            <linearGradient id="59f02547-6792-42ad-8b5f-b7475771ccd3">
+               <stop offset=".1762" stop-color="var(--premium-tier-0-blue-for-gradients)"></stop>
+               <stop offset="0.5351" stop-color="var(--premium-tier-0-blue-for-gradients-2)"></stop>
+               <stop offset="1" stop-color="var(--premium-tier-0-purple-for-gradients)"></stop>
+            </linearGradient>
+            <linearGradient id="22b47831-dca9-4413-96a8-70bb1463f068">
+               <stop stop-color="var(--premium-tier-1-blue)"></stop>
+               <stop offset="1" stop-color="var(--premium-tier-1-purple)"></stop>
+            </linearGradient>
+            <linearGradient id="47f0a913-8140-4bc3-abe7-db35391364bb">
+               <stop stop-color="var(--premium-tier-2-purple-for-gradients)"></stop>
+               <stop offset="0.502368" stop-color="var(--premium-tier-2-purple-for-gradients-2)"></stop>
+               <stop offset="1" stop-color="var(--premium-tier-2-pink-for-gradients)"></stop>
+            </linearGradient>
+            <linearGradient id="af881bb0-7f42-44c1-8324-84a4c4204aca">
+               <stop stop-color="var(--guild-boosting-blue)"></stop>
+               <stop offset="1" stop-color="var(--guild-boosting-purple)"></stop>
+            </linearGradient>
+            <linearGradient id="707bff7a-7310-4601-ba12-7029f9273b14" gradientTransform="rotate(45)">
+               <stop offset="0" stop-color="var(--premium-tier-2-purple)"></stop>
+               <stop offset="1" stop-color="var(--premium-tier-2-pink)"></stop>
+            </linearGradient>
+         </svg>
+         <div style="position: fixed; opacity: 0; pointer-events: none;"></div>
+         <div class="appAsidePanelWrapper_bd26cc">
+            <div class="notAppAsidePanel_bd26cc" data-app-not-dev-tools="true">
+               <div class="app_bd26cc">
+                  <div class="characterBackground_bdd070">
+                     <img class="artwork_bdd070" src="../discord/images/b9995525a52dc58aecf5.svg" alt=""><img class="logoWithText_bdd070" src="../discord/images/0e5029fd9cd4812b6712.svg" alt="">
+                     <div class="wrapper_ed5275">
+                        <div style="opacity: 1; transform: scale(1) translateY(0px) translateZ(0px);">
+                           <div>
+                              <form data-theme="dark" data-disable-adaptive-theme="true" class="authBoxExpanded_b83a05 authBox_b83a05 theme-dark images-dark">
+                                 <div class="discordLogo_b83a05"></div>
+                                 <div class="centeringWrapper_b83a05">
+                                    <div class="flex_dc333f horizontal_dc333f justifyStart_ec1a20 alignCenter_ec1a20 noWrap_ec1a20" style="flex: 1 1 auto;">
+                                       <div class="mainLoginContainer_d58f04">
+                                          <div class="header_d58f04">
+                                             <h1 class="heading-xl/semibold_dc00ef defaultColor_e42ec6 title_b83a05 marginBottom8_f7730b" data-text-variant="heading-xl/semibold" style="color: var(--header-primary);">Welcome back!</h1>
+                                             <div class="text-md/normal_dc00ef" data-text-variant="text-md/normal" style="color: var(--header-secondary);">We're so excited to see you again!</div>
+                                          </div>
+                                          <div class="block_b83a05 marginTop20_f7730b">
+                                             <div class="marginBottom20_f7730b">
+                                                <div class="fieldWrapper_bf709e">
+                                                   <label class="label_c46f6a eyebrow_c46f6a defaultColor_c46f6a defaultMarginlabel_c46f6a" id=":r0:" for="uid_24">Email or Phone Number<span class="required_c46f6a">*</span></label>
+                                                   <div class="input_f8bc55 input_cc6ddd">
+                                                      <div class="outerContainer_a0cb3d hidden_a0cb3d">
+                                                         <div class="container_a0cb3d" style="width: 0px;">
+                                                            <div class="innerContainer_a0cb3d">
+                                                               <div class="countryCode_a0cb3d" aria-expanded="false" role="button" tabindex="0">GB +44</div>
+                                                               <div class="separator_a0cb3d"></div>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                      <div class="inputWrapper_f8bc55 inputWrapper_cc6ddd"><input class="inputDefault_f8bc55 input_f8bc55 inputField_cc6ddd" id="uid_24" name="email" type="text" placeholder="" aria-label="Email or Phone Number" required="" autocomplete="webauthn" autocapitalize="none" autocorrect="off" maxlength="999" spellcheck="false" aria-labelledby=":r0:" value=""></div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div>
+                                                <div class="fieldWrapper_bf709e">
+                                                   <label class="label_c46f6a eyebrow_c46f6a defaultColor_c46f6a defaultMarginlabel_c46f6a" id=":r2:" for="uid_26">Password<span class="required_c46f6a">*</span></label>
+                                                   <div class="inputWrapper_f8bc55"><input class="inputDefault_f8bc55 input_f8bc55" name="password" type="password" placeholder="" aria-label="Password" autocomplete="off" maxlength="999" spellcheck="false" id="uid_26" aria-labelledby=":r2:" value=""></div>
+                                                </div>
+                                             </div>
+                                             <button type="button" class="marginBottom20_f7730b marginTop4_f7730b linkButton_b83a05 button_dd4f85 lookLink_dd4f85 lowSaturationUnderline_c7819f colorLink_dd4f85 sizeMin_dd4f85 grow_dd4f85">
+                                                <div class="contents_dd4f85">Forgot your password?</div>
+                                             </button>
+                                             <button type="submit" class="marginBottom8_f7730b button_b83a05 button_dd4f85 lookFilled_dd4f85 colorBrand_dd4f85 sizeLarge_dd4f85 fullWidth_dd4f85 grow_dd4f85">
+                                                <div class="contents_dd4f85">Log In</div>
+                                             </button>
+                                             <div class="marginTop4_f7730b">
+                                                <span class="needAccount_d58f04">Need an account?</span>
+                                                <button type="button" class="smallRegisterLink_d58f04 linkButton_b83a05 button_dd4f85 lookLink_dd4f85 lowSaturationUnderline_c7819f colorLink_dd4f85 sizeMin_dd4f85 grow_dd4f85">
+                                                   <div class="contents_dd4f85">Register</div>
+                                                </button>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="verticalSeparator_c6cd4b"></div>
+                                       <div class="transitionGroup_ae36eb qrLogin_c6cd4b">
+                                          <div class="measurementFill_ae36eb measurement_ae36eb measurementFillStatic_ae36eb">
+                                             <div class="animatedNode_ae36eb" style="overflow: visible; opacity: 1; height: 100%; transform: translateX(0%);">
+                                                <div class="qrLoginInner_c6cd4b">
+                                                   <div class="qrCodeContainer_c6cd4b">
+                                                      <div class="qrCodeContainer_bcfb9d qrCode_c6cd4b" style="width: 160px; height: 160px; background-color: rgb(255, 255, 255);">
+                                                         <svg xmlns="http://www.w3.org/2000/svg" height="160" viewBox="0 0 37 37" width="160">
+                                                            <path d="       M 7 0 l 1 0 0 1 -1 0 Z M 8 0 l 1 0 0 1 -1 0 Z    M 12 0 l 1 0 0 1 -1 0 Z  M 14 0 l 1 0 0 1 -1 0 Z  M 16 0 l 1 0 0 1 -1 0 Z  M 18 0 l 1 0 0 1 -1 0 Z      M 24 0 l 1 0 0 1 -1 0 Z M 25 0 l 1 0 0 1 -1 0 Z   M 28 0 l 1 0 0 1 -1 0 Z M 29 0 l 1 0 0 1 -1 0 Z         M 1 1 l 1 0 0 1 -1 0 Z M 2 1 l 1 0 0 1 -1 0 Z M 3 1 l 1 0 0 1 -1 0 Z M 4 1 l 1 0 0 1 -1 0 Z M 5 1 l 1 0 0 1 -1 0 Z  M 7 1 l 1 0 0 1 -1 0 Z  M 9 1 l 1 0 0 1 -1 0 Z        M 17 1 l 1 0 0 1 -1 0 Z  M 19 1 l 1 0 0 1 -1 0 Z   M 22 1 l 1 0 0 1 -1 0 Z     M 27 1 l 1 0 0 1 -1 0 Z  M 29 1 l 1 0 0 1 -1 0 Z  M 31 1 l 1 0 0 1 -1 0 Z M 32 1 l 1 0 0 1 -1 0 Z M 33 1 l 1 0 0 1 -1 0 Z M 34 1 l 1 0 0 1 -1 0 Z M 35 1 l 1 0 0 1 -1 0 Z   M 1 2 l 1 0 0 1 -1 0 Z    M 5 2 l 1 0 0 1 -1 0 Z  M 7 2 l 1 0 0 1 -1 0 Z   M 10 2 l 1 0 0 1 -1 0 Z M 11 2 l 1 0 0 1 -1 0 Z  M 13 2 l 1 0 0 1 -1 0 Z  M 15 2 l 1 0 0 1 -1 0 Z  M 17 2 l 1 0 0 1 -1 0 Z M 18 2 l 1 0 0 1 -1 0 Z M 19 2 l 1 0 0 1 -1 0 Z M 20 2 l 1 0 0 1 -1 0 Z  M 22 2 l 1 0 0 1 -1 0 Z  M 24 2 l 1 0 0 1 -1 0 Z M 25 2 l 1 0 0 1 -1 0 Z M 26 2 l 1 0 0 1 -1 0 Z M 27 2 l 1 0 0 1 -1 0 Z  M 29 2 l 1 0 0 1 -1 0 Z  M 31 2 l 1 0 0 1 -1 0 Z    M 35 2 l 1 0 0 1 -1 0 Z   M 1 3 l 1 0 0 1 -1 0 Z    M 5 3 l 1 0 0 1 -1 0 Z  M 7 3 l 1 0 0 1 -1 0 Z   M 10 3 l 1 0 0 1 -1 0 Z M 11 3 l 1 0 0 1 -1 0 Z M 12 3 l 1 0 0 1 -1 0 Z M 13 3 l 1 0 0 1 -1 0 Z M 14 3 l 1 0 0 1 -1 0 Z    M 18 3 l 1 0 0 1 -1 0 Z M 19 3 l 1 0 0 1 -1 0 Z M 20 3 l 1 0 0 1 -1 0 Z  M 22 3 l 1 0 0 1 -1 0 Z    M 26 3 l 1 0 0 1 -1 0 Z   M 29 3 l 1 0 0 1 -1 0 Z  M 31 3 l 1 0 0 1 -1 0 Z    M 35 3 l 1 0 0 1 -1 0 Z   M 1 4 l 1 0 0 1 -1 0 Z    M 5 4 l 1 0 0 1 -1 0 Z  M 7 4 l 1 0 0 1 -1 0 Z M 8 4 l 1 0 0 1 -1 0 Z     M 13 4 l 1 0 0 1 -1 0 Z  M 15 4 l 1 0 0 1 -1 0 Z M 16 4 l 1 0 0 1 -1 0 Z    M 20 4 l 1 0 0 1 -1 0 Z  M 22 4 l 1 0 0 1 -1 0 Z  M 24 4 l 1 0 0 1 -1 0 Z  M 26 4 l 1 0 0 1 -1 0 Z M 27 4 l 1 0 0 1 -1 0 Z M 28 4 l 1 0 0 1 -1 0 Z M 29 4 l 1 0 0 1 -1 0 Z  M 31 4 l 1 0 0 1 -1 0 Z    M 35 4 l 1 0 0 1 -1 0 Z   M 1 5 l 1 0 0 1 -1 0 Z M 2 5 l 1 0 0 1 -1 0 Z M 3 5 l 1 0 0 1 -1 0 Z M 4 5 l 1 0 0 1 -1 0 Z M 5 5 l 1 0 0 1 -1 0 Z  M 7 5 l 1 0 0 1 -1 0 Z M 8 5 l 1 0 0 1 -1 0 Z M 9 5 l 1 0 0 1 -1 0 Z   M 12 5 l 1 0 0 1 -1 0 Z  M 14 5 l 1 0 0 1 -1 0 Z M 15 5 l 1 0 0 1 -1 0 Z M 16 5 l 1 0 0 1 -1 0 Z  M 18 5 l 1 0 0 1 -1 0 Z M 19 5 l 1 0 0 1 -1 0 Z  M 21 5 l 1 0 0 1 -1 0 Z M 22 5 l 1 0 0 1 -1 0 Z M 23 5 l 1 0 0 1 -1 0 Z   M 26 5 l 1 0 0 1 -1 0 Z M 27 5 l 1 0 0 1 -1 0 Z M 28 5 l 1 0 0 1 -1 0 Z M 29 5 l 1 0 0 1 -1 0 Z  M 31 5 l 1 0 0 1 -1 0 Z M 32 5 l 1 0 0 1 -1 0 Z M 33 5 l 1 0 0 1 -1 0 Z M 34 5 l 1 0 0 1 -1 0 Z M 35 5 l 1 0 0 1 -1 0 Z         M 7 6 l 1 0 0 1 -1 0 Z  M 9 6 l 1 0 0 1 -1 0 Z  M 11 6 l 1 0 0 1 -1 0 Z  M 13 6 l 1 0 0 1 -1 0 Z  M 15 6 l 1 0 0 1 -1 0 Z  M 17 6 l 1 0 0 1 -1 0 Z  M 19 6 l 1 0 0 1 -1 0 Z  M 21 6 l 1 0 0 1 -1 0 Z  M 23 6 l 1 0 0 1 -1 0 Z  M 25 6 l 1 0 0 1 -1 0 Z  M 27 6 l 1 0 0 1 -1 0 Z  M 29 6 l 1 0 0 1 -1 0 Z        M 0 7 l 1 0 0 1 -1 0 Z M 1 7 l 1 0 0 1 -1 0 Z M 2 7 l 1 0 0 1 -1 0 Z M 3 7 l 1 0 0 1 -1 0 Z M 4 7 l 1 0 0 1 -1 0 Z M 5 7 l 1 0 0 1 -1 0 Z M 6 7 l 1 0 0 1 -1 0 Z M 7 7 l 1 0 0 1 -1 0 Z       M 14 7 l 1 0 0 1 -1 0 Z M 15 7 l 1 0 0 1 -1 0 Z M 16 7 l 1 0 0 1 -1 0 Z     M 21 7 l 1 0 0 1 -1 0 Z  M 23 7 l 1 0 0 1 -1 0 Z M 24 7 l 1 0 0 1 -1 0 Z M 25 7 l 1 0 0 1 -1 0 Z  M 27 7 l 1 0 0 1 -1 0 Z  M 29 7 l 1 0 0 1 -1 0 Z M 30 7 l 1 0 0 1 -1 0 Z M 31 7 l 1 0 0 1 -1 0 Z M 32 7 l 1 0 0 1 -1 0 Z M 33 7 l 1 0 0 1 -1 0 Z M 34 7 l 1 0 0 1 -1 0 Z M 35 7 l 1 0 0 1 -1 0 Z M 36 7 l 1 0 0 1 -1 0 Z  M 1 8 l 1 0 0 1 -1 0 Z M 2 8 l 1 0 0 1 -1 0 Z M 3 8 l 1 0 0 1 -1 0 Z M 4 8 l 1 0 0 1 -1 0 Z M 5 8 l 1 0 0 1 -1 0 Z  M 7 8 l 1 0 0 1 -1 0 Z  M 9 8 l 1 0 0 1 -1 0 Z    M 13 8 l 1 0 0 1 -1 0 Z  M 15 8 l 1 0 0 1 -1 0 Z  M 17 8 l 1 0 0 1 -1 0 Z M 18 8 l 1 0 0 1 -1 0 Z M 19 8 l 1 0 0 1 -1 0 Z M 20 8 l 1 0 0 1 -1 0 Z  M 22 8 l 1 0 0 1 -1 0 Z M 23 8 l 1 0 0 1 -1 0 Z     M 28 8 l 1 0 0 1 -1 0 Z   M 31 8 l 1 0 0 1 -1 0 Z M 32 8 l 1 0 0 1 -1 0 Z    M 36 8 l 1 0 0 1 -1 0 Z M 0 9 l 1 0 0 1 -1 0 Z  M 2 9 l 1 0 0 1 -1 0 Z   M 5 9 l 1 0 0 1 -1 0 Z M 6 9 l 1 0 0 1 -1 0 Z      M 12 9 l 1 0 0 1 -1 0 Z M 13 9 l 1 0 0 1 -1 0 Z  M 15 9 l 1 0 0 1 -1 0 Z  M 17 9 l 1 0 0 1 -1 0 Z  M 19 9 l 1 0 0 1 -1 0 Z M 20 9 l 1 0 0 1 -1 0 Z  M 22 9 l 1 0 0 1 -1 0 Z M 23 9 l 1 0 0 1 -1 0 Z  M 25 9 l 1 0 0 1 -1 0 Z M 26 9 l 1 0 0 1 -1 0 Z  M 28 9 l 1 0 0 1 -1 0 Z M 29 9 l 1 0 0 1 -1 0 Z    M 33 9 l 1 0 0 1 -1 0 Z   M 36 9 l 1 0 0 1 -1 0 Z    M 3 10 l 1 0 0 1 -1 0 Z       M 10 10 l 1 0 0 1 -1 0 Z M 11 10 l 1 0 0 1 -1 0 Z M 12 10 l 1 0 0 1 -1 0 Z     M 17 10 l 1 0 0 1 -1 0 Z M 18 10 l 1 0 0 1 -1 0 Z  M 20 10 l 1 0 0 1 -1 0 Z   M 23 10 l 1 0 0 1 -1 0 Z M 24 10 l 1 0 0 1 -1 0 Z  M 26 10 l 1 0 0 1 -1 0 Z      M 32 10 l 1 0 0 1 -1 0 Z     M 0 11 l 1 0 0 1 -1 0 Z  M 2 11 l 1 0 0 1 -1 0 Z   M 5 11 l 1 0 0 1 -1 0 Z M 6 11 l 1 0 0 1 -1 0 Z M 7 11 l 1 0 0 1 -1 0 Z      M 13 11 l 1 0 0 1 -1 0 Z M 14 11 l 1 0 0 1 -1 0 Z M 15 11 l 1 0 0 1 -1 0 Z M 16 11 l 1 0 0 1 -1 0 Z M 17 11 l 1 0 0 1 -1 0 Z    M 21 11 l 1 0 0 1 -1 0 Z M 22 11 l 1 0 0 1 -1 0 Z   M 25 11 l 1 0 0 1 -1 0 Z  M 27 11 l 1 0 0 1 -1 0 Z M 28 11 l 1 0 0 1 -1 0 Z M 29 11 l 1 0 0 1 -1 0 Z   M 32 11 l 1 0 0 1 -1 0 Z  M 34 11 l 1 0 0 1 -1 0 Z M 35 11 l 1 0 0 1 -1 0 Z     M 3 12 l 1 0 0 1 -1 0 Z  M 5 12 l 1 0 0 1 -1 0 Z  M 7 12 l 1 0 0 1 -1 0 Z  M 9 12 l 1 0 0 1 -1 0 Z M 10 12 l 1 0 0 1 -1 0 Z M 11 12 l 1 0 0 1 -1 0 Z M 12 12 l 1 0 0 1 -1 0 Z M 13 12 l 1 0 0 1 -1 0 Z M 14 12 l 1 0 0 1 -1 0 Z   M 17 12 l 1 0 0 1 -1 0 Z M 18 12 l 1 0 0 1 -1 0 Z M 19 12 l 1 0 0 1 -1 0 Z   M 22 12 l 1 0 0 1 -1 0 Z  M 24 12 l 1 0 0 1 -1 0 Z M 25 12 l 1 0 0 1 -1 0 Z M 26 12 l 1 0 0 1 -1 0 Z M 27 12 l 1 0 0 1 -1 0 Z  M 29 12 l 1 0 0 1 -1 0 Z   M 32 12 l 1 0 0 1 -1 0 Z  M 34 12 l 1 0 0 1 -1 0 Z M 35 12 l 1 0 0 1 -1 0 Z  M 0 13 l 1 0 0 1 -1 0 Z M 1 13 l 1 0 0 1 -1 0 Z  M 3 13 l 1 0 0 1 -1 0 Z M 4 13 l 1 0 0 1 -1 0 Z  M 6 13 l 1 0 0 1 -1 0 Z M 7 13 l 1 0 0 1 -1 0 Z   M 10 13 l 1 0 0 1 -1 0 Z M 11 13 l 1 0 0 1 -1 0 Z M 12 13 l 1 0 0 1 -1 0 Z     M 17 13 l 1 0 0 1 -1 0 Z        M 25 13 l 1 0 0 1 -1 0 Z M 26 13 l 1 0 0 1 -1 0 Z   M 29 13 l 1 0 0 1 -1 0 Z M 30 13 l 1 0 0 1 -1 0 Z  M 32 13 l 1 0 0 1 -1 0 Z  M 34 13 l 1 0 0 1 -1 0 Z   M 0 14 l 1 0 0 1 -1 0 Z    M 4 14 l 1 0 0 1 -1 0 Z      M 10 14 l 1 0 0 1 -1 0 Z   M 13 14 l 1 0 0 1 -1 0 Z    M 17 14 l 1 0 0 1 -1 0 Z  M 19 14 l 1 0 0 1 -1 0 Z  M 21 14 l 1 0 0 1 -1 0 Z  M 23 14 l 1 0 0 1 -1 0 Z M 24 14 l 1 0 0 1 -1 0 Z  M 26 14 l 1 0 0 1 -1 0 Z  M 28 14 l 1 0 0 1 -1 0 Z  M 30 14 l 1 0 0 1 -1 0 Z    M 34 14 l 1 0 0 1 -1 0 Z   M 0 15 l 1 0 0 1 -1 0 Z M 1 15 l 1 0 0 1 -1 0 Z   M 4 15 l 1 0 0 1 -1 0 Z  M 6 15 l 1 0 0 1 -1 0 Z M 7 15 l 1 0 0 1 -1 0 Z M 8 15 l 1 0 0 1 -1 0 Z     M 13 15 l 1 0 0 1 -1 0 Z   M 16 15 l 1 0 0 1 -1 0 Z M 17 15 l 1 0 0 1 -1 0 Z M 18 15 l 1 0 0 1 -1 0 Z  M 20 15 l 1 0 0 1 -1 0 Z    M 24 15 l 1 0 0 1 -1 0 Z M 25 15 l 1 0 0 1 -1 0 Z M 26 15 l 1 0 0 1 -1 0 Z   M 29 15 l 1 0 0 1 -1 0 Z M 30 15 l 1 0 0 1 -1 0 Z  M 32 15 l 1 0 0 1 -1 0 Z   M 35 15 l 1 0 0 1 -1 0 Z M 36 15 l 1 0 0 1 -1 0 Z    M 3 16 l 1 0 0 1 -1 0 Z M 4 16 l 1 0 0 1 -1 0 Z    M 8 16 l 1 0 0 1 -1 0 Z M 9 16 l 1 0 0 1 -1 0 Z M 10 16 l 1 0 0 1 -1 0 Z     M 15 16 l 1 0 0 1 -1 0 Z M 16 16 l 1 0 0 1 -1 0 Z M 17 16 l 1 0 0 1 -1 0 Z  M 19 16 l 1 0 0 1 -1 0 Z         M 28 16 l 1 0 0 1 -1 0 Z     M 33 16 l 1 0 0 1 -1 0 Z   M 36 16 l 1 0 0 1 -1 0 Z M 0 17 l 1 0 0 1 -1 0 Z M 1 17 l 1 0 0 1 -1 0 Z M 2 17 l 1 0 0 1 -1 0 Z   M 5 17 l 1 0 0 1 -1 0 Z M 6 17 l 1 0 0 1 -1 0 Z M 7 17 l 1 0 0 1 -1 0 Z M 8 17 l 1 0 0 1 -1 0 Z M 9 17 l 1 0 0 1 -1 0 Z  M 11 17 l 1 0 0 1 -1 0 Z M 12 17 l 1 0 0 1 -1 0 Z M 13 17 l 1 0 0 1 -1 0 Z M 14 17 l 1 0 0 1 -1 0 Z M 15 17 l 1 0 0 1 -1 0 Z   M 18 17 l 1 0 0 1 -1 0 Z M 19 17 l 1 0 0 1 -1 0 Z M 20 17 l 1 0 0 1 -1 0 Z M 21 17 l 1 0 0 1 -1 0 Z M 22 17 l 1 0 0 1 -1 0 Z  M 24 17 l 1 0 0 1 -1 0 Z   M 27 17 l 1 0 0 1 -1 0 Z   M 30 17 l 1 0 0 1 -1 0 Z  M 32 17 l 1 0 0 1 -1 0 Z    M 36 17 l 1 0 0 1 -1 0 Z M 0 18 l 1 0 0 1 -1 0 Z  M 2 18 l 1 0 0 1 -1 0 Z M 3 18 l 1 0 0 1 -1 0 Z    M 7 18 l 1 0 0 1 -1 0 Z   M 10 18 l 1 0 0 1 -1 0 Z M 11 18 l 1 0 0 1 -1 0 Z   M 14 18 l 1 0 0 1 -1 0 Z M 15 18 l 1 0 0 1 -1 0 Z   M 18 18 l 1 0 0 1 -1 0 Z  M 20 18 l 1 0 0 1 -1 0 Z  M 22 18 l 1 0 0 1 -1 0 Z  M 24 18 l 1 0 0 1 -1 0 Z M 25 18 l 1 0 0 1 -1 0 Z M 26 18 l 1 0 0 1 -1 0 Z  M 28 18 l 1 0 0 1 -1 0 Z  M 30 18 l 1 0 0 1 -1 0 Z M 31 18 l 1 0 0 1 -1 0 Z M 32 18 l 1 0 0 1 -1 0 Z M 33 18 l 1 0 0 1 -1 0 Z M 34 18 l 1 0 0 1 -1 0 Z M 35 18 l 1 0 0 1 -1 0 Z    M 2 19 l 1 0 0 1 -1 0 Z    M 6 19 l 1 0 0 1 -1 0 Z M 7 19 l 1 0 0 1 -1 0 Z M 8 19 l 1 0 0 1 -1 0 Z M 9 19 l 1 0 0 1 -1 0 Z  M 11 19 l 1 0 0 1 -1 0 Z M 12 19 l 1 0 0 1 -1 0 Z M 13 19 l 1 0 0 1 -1 0 Z    M 17 19 l 1 0 0 1 -1 0 Z M 18 19 l 1 0 0 1 -1 0 Z M 19 19 l 1 0 0 1 -1 0 Z M 20 19 l 1 0 0 1 -1 0 Z M 21 19 l 1 0 0 1 -1 0 Z    M 25 19 l 1 0 0 1 -1 0 Z  M 27 19 l 1 0 0 1 -1 0 Z M 28 19 l 1 0 0 1 -1 0 Z   M 31 19 l 1 0 0 1 -1 0 Z M 32 19 l 1 0 0 1 -1 0 Z  M 34 19 l 1 0 0 1 -1 0 Z M 35 19 l 1 0 0 1 -1 0 Z  M 0 20 l 1 0 0 1 -1 0 Z  M 2 20 l 1 0 0 1 -1 0 Z   M 5 20 l 1 0 0 1 -1 0 Z   M 8 20 l 1 0 0 1 -1 0 Z  M 10 20 l 1 0 0 1 -1 0 Z M 11 20 l 1 0 0 1 -1 0 Z  M 13 20 l 1 0 0 1 -1 0 Z  M 15 20 l 1 0 0 1 -1 0 Z M 16 20 l 1 0 0 1 -1 0 Z  M 18 20 l 1 0 0 1 -1 0 Z M 19 20 l 1 0 0 1 -1 0 Z M 20 20 l 1 0 0 1 -1 0 Z   M 23 20 l 1 0 0 1 -1 0 Z        M 31 20 l 1 0 0 1 -1 0 Z  M 33 20 l 1 0 0 1 -1 0 Z M 34 20 l 1 0 0 1 -1 0 Z M 35 20 l 1 0 0 1 -1 0 Z M 36 20 l 1 0 0 1 -1 0 Z  M 1 21 l 1 0 0 1 -1 0 Z M 2 21 l 1 0 0 1 -1 0 Z M 3 21 l 1 0 0 1 -1 0 Z M 4 21 l 1 0 0 1 -1 0 Z M 5 21 l 1 0 0 1 -1 0 Z M 6 21 l 1 0 0 1 -1 0 Z M 7 21 l 1 0 0 1 -1 0 Z M 8 21 l 1 0 0 1 -1 0 Z   M 11 21 l 1 0 0 1 -1 0 Z M 12 21 l 1 0 0 1 -1 0 Z M 13 21 l 1 0 0 1 -1 0 Z  M 15 21 l 1 0 0 1 -1 0 Z M 16 21 l 1 0 0 1 -1 0 Z    M 20 21 l 1 0 0 1 -1 0 Z M 21 21 l 1 0 0 1 -1 0 Z       M 28 21 l 1 0 0 1 -1 0 Z  M 30 21 l 1 0 0 1 -1 0 Z M 31 21 l 1 0 0 1 -1 0 Z  M 33 21 l 1 0 0 1 -1 0 Z  M 35 21 l 1 0 0 1 -1 0 Z  M 0 22 l 1 0 0 1 -1 0 Z    M 4 22 l 1 0 0 1 -1 0 Z M 5 22 l 1 0 0 1 -1 0 Z    M 9 22 l 1 0 0 1 -1 0 Z M 10 22 l 1 0 0 1 -1 0 Z   M 13 22 l 1 0 0 1 -1 0 Z   M 16 22 l 1 0 0 1 -1 0 Z  M 18 22 l 1 0 0 1 -1 0 Z M 19 22 l 1 0 0 1 -1 0 Z   M 22 22 l 1 0 0 1 -1 0 Z M 23 22 l 1 0 0 1 -1 0 Z M 24 22 l 1 0 0 1 -1 0 Z M 25 22 l 1 0 0 1 -1 0 Z M 26 22 l 1 0 0 1 -1 0 Z   M 29 22 l 1 0 0 1 -1 0 Z M 30 22 l 1 0 0 1 -1 0 Z    M 34 22 l 1 0 0 1 -1 0 Z   M 0 23 l 1 0 0 1 -1 0 Z  M 2 23 l 1 0 0 1 -1 0 Z    M 6 23 l 1 0 0 1 -1 0 Z  M 8 23 l 1 0 0 1 -1 0 Z M 9 23 l 1 0 0 1 -1 0 Z M 10 23 l 1 0 0 1 -1 0 Z     M 15 23 l 1 0 0 1 -1 0 Z M 16 23 l 1 0 0 1 -1 0 Z     M 21 23 l 1 0 0 1 -1 0 Z  M 23 23 l 1 0 0 1 -1 0 Z  M 25 23 l 1 0 0 1 -1 0 Z         M 34 23 l 1 0 0 1 -1 0 Z M 35 23 l 1 0 0 1 -1 0 Z M 36 23 l 1 0 0 1 -1 0 Z M 0 24 l 1 0 0 1 -1 0 Z   M 3 24 l 1 0 0 1 -1 0 Z M 4 24 l 1 0 0 1 -1 0 Z M 5 24 l 1 0 0 1 -1 0 Z    M 9 24 l 1 0 0 1 -1 0 Z   M 12 24 l 1 0 0 1 -1 0 Z   M 15 24 l 1 0 0 1 -1 0 Z M 16 24 l 1 0 0 1 -1 0 Z  M 18 24 l 1 0 0 1 -1 0 Z      M 24 24 l 1 0 0 1 -1 0 Z M 25 24 l 1 0 0 1 -1 0 Z M 26 24 l 1 0 0 1 -1 0 Z M 27 24 l 1 0 0 1 -1 0 Z  M 29 24 l 1 0 0 1 -1 0 Z   M 32 24 l 1 0 0 1 -1 0 Z M 33 24 l 1 0 0 1 -1 0 Z M 34 24 l 1 0 0 1 -1 0 Z  M 36 24 l 1 0 0 1 -1 0 Z  M 1 25 l 1 0 0 1 -1 0 Z  M 3 25 l 1 0 0 1 -1 0 Z M 4 25 l 1 0 0 1 -1 0 Z  M 6 25 l 1 0 0 1 -1 0 Z M 7 25 l 1 0 0 1 -1 0 Z M 8 25 l 1 0 0 1 -1 0 Z M 9 25 l 1 0 0 1 -1 0 Z    M 13 25 l 1 0 0 1 -1 0 Z M 14 25 l 1 0 0 1 -1 0 Z M 15 25 l 1 0 0 1 -1 0 Z M 16 25 l 1 0 0 1 -1 0 Z M 17 25 l 1 0 0 1 -1 0 Z  M 19 25 l 1 0 0 1 -1 0 Z  M 21 25 l 1 0 0 1 -1 0 Z     M 26 25 l 1 0 0 1 -1 0 Z M 27 25 l 1 0 0 1 -1 0 Z  M 29 25 l 1 0 0 1 -1 0 Z   M 32 25 l 1 0 0 1 -1 0 Z   M 35 25 l 1 0 0 1 -1 0 Z M 36 25 l 1 0 0 1 -1 0 Z  M 1 26 l 1 0 0 1 -1 0 Z  M 3 26 l 1 0 0 1 -1 0 Z M 4 26 l 1 0 0 1 -1 0 Z     M 9 26 l 1 0 0 1 -1 0 Z M 10 26 l 1 0 0 1 -1 0 Z  M 12 26 l 1 0 0 1 -1 0 Z M 13 26 l 1 0 0 1 -1 0 Z M 14 26 l 1 0 0 1 -1 0 Z   M 17 26 l 1 0 0 1 -1 0 Z   M 20 26 l 1 0 0 1 -1 0 Z M 21 26 l 1 0 0 1 -1 0 Z M 22 26 l 1 0 0 1 -1 0 Z M 23 26 l 1 0 0 1 -1 0 Z M 24 26 l 1 0 0 1 -1 0 Z M 25 26 l 1 0 0 1 -1 0 Z   M 28 26 l 1 0 0 1 -1 0 Z M 29 26 l 1 0 0 1 -1 0 Z    M 33 26 l 1 0 0 1 -1 0 Z     M 1 27 l 1 0 0 1 -1 0 Z M 2 27 l 1 0 0 1 -1 0 Z    M 6 27 l 1 0 0 1 -1 0 Z  M 8 27 l 1 0 0 1 -1 0 Z M 9 27 l 1 0 0 1 -1 0 Z  M 11 27 l 1 0 0 1 -1 0 Z M 12 27 l 1 0 0 1 -1 0 Z   M 15 27 l 1 0 0 1 -1 0 Z  M 17 27 l 1 0 0 1 -1 0 Z M 18 27 l 1 0 0 1 -1 0 Z  M 20 27 l 1 0 0 1 -1 0 Z M 21 27 l 1 0 0 1 -1 0 Z   M 24 27 l 1 0 0 1 -1 0 Z M 25 27 l 1 0 0 1 -1 0 Z M 26 27 l 1 0 0 1 -1 0 Z    M 30 27 l 1 0 0 1 -1 0 Z     M 35 27 l 1 0 0 1 -1 0 Z M 36 27 l 1 0 0 1 -1 0 Z  M 1 28 l 1 0 0 1 -1 0 Z M 2 28 l 1 0 0 1 -1 0 Z     M 7 28 l 1 0 0 1 -1 0 Z      M 13 28 l 1 0 0 1 -1 0 Z M 14 28 l 1 0 0 1 -1 0 Z  M 16 28 l 1 0 0 1 -1 0 Z M 17 28 l 1 0 0 1 -1 0 Z M 18 28 l 1 0 0 1 -1 0 Z   M 21 28 l 1 0 0 1 -1 0 Z  M 23 28 l 1 0 0 1 -1 0 Z   M 26 28 l 1 0 0 1 -1 0 Z         M 35 28 l 1 0 0 1 -1 0 Z  M 0 29 l 1 0 0 1 -1 0 Z M 1 29 l 1 0 0 1 -1 0 Z M 2 29 l 1 0 0 1 -1 0 Z M 3 29 l 1 0 0 1 -1 0 Z M 4 29 l 1 0 0 1 -1 0 Z M 5 29 l 1 0 0 1 -1 0 Z M 6 29 l 1 0 0 1 -1 0 Z M 7 29 l 1 0 0 1 -1 0 Z  M 9 29 l 1 0 0 1 -1 0 Z M 10 29 l 1 0 0 1 -1 0 Z M 11 29 l 1 0 0 1 -1 0 Z  M 13 29 l 1 0 0 1 -1 0 Z M 14 29 l 1 0 0 1 -1 0 Z   M 17 29 l 1 0 0 1 -1 0 Z   M 20 29 l 1 0 0 1 -1 0 Z  M 22 29 l 1 0 0 1 -1 0 Z  M 24 29 l 1 0 0 1 -1 0 Z  M 26 29 l 1 0 0 1 -1 0 Z M 27 29 l 1 0 0 1 -1 0 Z  M 29 29 l 1 0 0 1 -1 0 Z M 30 29 l 1 0 0 1 -1 0 Z M 31 29 l 1 0 0 1 -1 0 Z  M 33 29 l 1 0 0 1 -1 0 Z M 34 29 l 1 0 0 1 -1 0 Z M 35 29 l 1 0 0 1 -1 0 Z         M 7 30 l 1 0 0 1 -1 0 Z M 8 30 l 1 0 0 1 -1 0 Z M 9 30 l 1 0 0 1 -1 0 Z M 10 30 l 1 0 0 1 -1 0 Z  M 12 30 l 1 0 0 1 -1 0 Z         M 21 30 l 1 0 0 1 -1 0 Z M 22 30 l 1 0 0 1 -1 0 Z    M 26 30 l 1 0 0 1 -1 0 Z M 27 30 l 1 0 0 1 -1 0 Z  M 29 30 l 1 0 0 1 -1 0 Z  M 31 30 l 1 0 0 1 -1 0 Z  M 33 30 l 1 0 0 1 -1 0 Z M 34 30 l 1 0 0 1 -1 0 Z M 35 30 l 1 0 0 1 -1 0 Z   M 1 31 l 1 0 0 1 -1 0 Z M 2 31 l 1 0 0 1 -1 0 Z M 3 31 l 1 0 0 1 -1 0 Z M 4 31 l 1 0 0 1 -1 0 Z M 5 31 l 1 0 0 1 -1 0 Z  M 7 31 l 1 0 0 1 -1 0 Z M 8 31 l 1 0 0 1 -1 0 Z M 9 31 l 1 0 0 1 -1 0 Z  M 11 31 l 1 0 0 1 -1 0 Z     M 16 31 l 1 0 0 1 -1 0 Z M 17 31 l 1 0 0 1 -1 0 Z M 18 31 l 1 0 0 1 -1 0 Z  M 20 31 l 1 0 0 1 -1 0 Z  M 22 31 l 1 0 0 1 -1 0 Z   M 25 31 l 1 0 0 1 -1 0 Z    M 29 31 l 1 0 0 1 -1 0 Z M 30 31 l 1 0 0 1 -1 0 Z M 31 31 l 1 0 0 1 -1 0 Z  M 33 31 l 1 0 0 1 -1 0 Z M 34 31 l 1 0 0 1 -1 0 Z  M 36 31 l 1 0 0 1 -1 0 Z  M 1 32 l 1 0 0 1 -1 0 Z    M 5 32 l 1 0 0 1 -1 0 Z  M 7 32 l 1 0 0 1 -1 0 Z M 8 32 l 1 0 0 1 -1 0 Z M 9 32 l 1 0 0 1 -1 0 Z     M 14 32 l 1 0 0 1 -1 0 Z  M 16 32 l 1 0 0 1 -1 0 Z M 17 32 l 1 0 0 1 -1 0 Z  M 19 32 l 1 0 0 1 -1 0 Z    M 23 32 l 1 0 0 1 -1 0 Z M 24 32 l 1 0 0 1 -1 0 Z M 25 32 l 1 0 0 1 -1 0 Z        M 33 32 l 1 0 0 1 -1 0 Z  M 35 32 l 1 0 0 1 -1 0 Z   M 1 33 l 1 0 0 1 -1 0 Z    M 5 33 l 1 0 0 1 -1 0 Z  M 7 33 l 1 0 0 1 -1 0 Z M 8 33 l 1 0 0 1 -1 0 Z  M 10 33 l 1 0 0 1 -1 0 Z M 11 33 l 1 0 0 1 -1 0 Z    M 15 33 l 1 0 0 1 -1 0 Z M 16 33 l 1 0 0 1 -1 0 Z  M 18 33 l 1 0 0 1 -1 0 Z M 19 33 l 1 0 0 1 -1 0 Z  M 21 33 l 1 0 0 1 -1 0 Z  M 23 33 l 1 0 0 1 -1 0 Z M 24 33 l 1 0 0 1 -1 0 Z    M 28 33 l 1 0 0 1 -1 0 Z   M 31 33 l 1 0 0 1 -1 0 Z M 32 33 l 1 0 0 1 -1 0 Z M 33 33 l 1 0 0 1 -1 0 Z M 34 33 l 1 0 0 1 -1 0 Z M 35 33 l 1 0 0 1 -1 0 Z   M 1 34 l 1 0 0 1 -1 0 Z    M 5 34 l 1 0 0 1 -1 0 Z  M 7 34 l 1 0 0 1 -1 0 Z M 8 34 l 1 0 0 1 -1 0 Z M 9 34 l 1 0 0 1 -1 0 Z  M 11 34 l 1 0 0 1 -1 0 Z M 12 34 l 1 0 0 1 -1 0 Z M 13 34 l 1 0 0 1 -1 0 Z  M 15 34 l 1 0 0 1 -1 0 Z M 16 34 l 1 0 0 1 -1 0 Z M 17 34 l 1 0 0 1 -1 0 Z M 18 34 l 1 0 0 1 -1 0 Z M 19 34 l 1 0 0 1 -1 0 Z  M 21 34 l 1 0 0 1 -1 0 Z M 22 34 l 1 0 0 1 -1 0 Z M 23 34 l 1 0 0 1 -1 0 Z M 24 34 l 1 0 0 1 -1 0 Z    M 28 34 l 1 0 0 1 -1 0 Z M 29 34 l 1 0 0 1 -1 0 Z M 30 34 l 1 0 0 1 -1 0 Z M 31 34 l 1 0 0 1 -1 0 Z M 32 34 l 1 0 0 1 -1 0 Z M 33 34 l 1 0 0 1 -1 0 Z     M 1 35 l 1 0 0 1 -1 0 Z M 2 35 l 1 0 0 1 -1 0 Z M 3 35 l 1 0 0 1 -1 0 Z M 4 35 l 1 0 0 1 -1 0 Z M 5 35 l 1 0 0 1 -1 0 Z  M 7 35 l 1 0 0 1 -1 0 Z M 8 35 l 1 0 0 1 -1 0 Z   M 11 35 l 1 0 0 1 -1 0 Z   M 14 35 l 1 0 0 1 -1 0 Z   M 17 35 l 1 0 0 1 -1 0 Z M 18 35 l 1 0 0 1 -1 0 Z M 19 35 l 1 0 0 1 -1 0 Z M 20 35 l 1 0 0 1 -1 0 Z M 21 35 l 1 0 0 1 -1 0 Z  M 23 35 l 1 0 0 1 -1 0 Z  M 25 35 l 1 0 0 1 -1 0 Z     M 30 35 l 1 0 0 1 -1 0 Z M 31 35 l 1 0 0 1 -1 0 Z   M 34 35 l 1 0 0 1 -1 0 Z M 35 35 l 1 0 0 1 -1 0 Z         M 7 36 l 1 0 0 1 -1 0 Z   M 10 36 l 1 0 0 1 -1 0 Z     M 15 36 l 1 0 0 1 -1 0 Z M 16 36 l 1 0 0 1 -1 0 Z M 17 36 l 1 0 0 1 -1 0 Z M 18 36 l 1 0 0 1 -1 0 Z  M 20 36 l 1 0 0 1 -1 0 Z M 21 36 l 1 0 0 1 -1 0 Z M 22 36 l 1 0 0 1 -1 0 Z  M 24 36 l 1 0 0 1 -1 0 Z M 25 36 l 1 0 0 1 -1 0 Z M 26 36 l 1 0 0 1 -1 0 Z    M 30 36 l 1 0 0 1 -1 0 Z  M 32 36 l 1 0 0 1 -1 0 Z M 33 36 l 1 0 0 1 -1 0 Z M 34 36 l 1 0 0 1 -1 0 Z M 35 36 l 1 0 0 1 -1 0 Z " fill="#ffffff"></path>
+                                                            <path d="M 0 0 l 1 0 0 1 -1 0 Z M 1 0 l 1 0 0 1 -1 0 Z M 2 0 l 1 0 0 1 -1 0 Z M 3 0 l 1 0 0 1 -1 0 Z M 4 0 l 1 0 0 1 -1 0 Z M 5 0 l 1 0 0 1 -1 0 Z M 6 0 l 1 0 0 1 -1 0 Z   M 9 0 l 1 0 0 1 -1 0 Z M 10 0 l 1 0 0 1 -1 0 Z M 11 0 l 1 0 0 1 -1 0 Z  M 13 0 l 1 0 0 1 -1 0 Z  M 15 0 l 1 0 0 1 -1 0 Z  M 17 0 l 1 0 0 1 -1 0 Z  M 19 0 l 1 0 0 1 -1 0 Z M 20 0 l 1 0 0 1 -1 0 Z M 21 0 l 1 0 0 1 -1 0 Z M 22 0 l 1 0 0 1 -1 0 Z M 23 0 l 1 0 0 1 -1 0 Z   M 26 0 l 1 0 0 1 -1 0 Z M 27 0 l 1 0 0 1 -1 0 Z   M 30 0 l 1 0 0 1 -1 0 Z M 31 0 l 1 0 0 1 -1 0 Z M 32 0 l 1 0 0 1 -1 0 Z M 33 0 l 1 0 0 1 -1 0 Z M 34 0 l 1 0 0 1 -1 0 Z M 35 0 l 1 0 0 1 -1 0 Z M 36 0 l 1 0 0 1 -1 0 Z M 0 1 l 1 0 0 1 -1 0 Z      M 6 1 l 1 0 0 1 -1 0 Z  M 8 1 l 1 0 0 1 -1 0 Z  M 10 1 l 1 0 0 1 -1 0 Z M 11 1 l 1 0 0 1 -1 0 Z M 12 1 l 1 0 0 1 -1 0 Z M 13 1 l 1 0 0 1 -1 0 Z M 14 1 l 1 0 0 1 -1 0 Z M 15 1 l 1 0 0 1 -1 0 Z M 16 1 l 1 0 0 1 -1 0 Z  M 18 1 l 1 0 0 1 -1 0 Z  M 20 1 l 1 0 0 1 -1 0 Z M 21 1 l 1 0 0 1 -1 0 Z  M 23 1 l 1 0 0 1 -1 0 Z M 24 1 l 1 0 0 1 -1 0 Z M 25 1 l 1 0 0 1 -1 0 Z M 26 1 l 1 0 0 1 -1 0 Z  M 28 1 l 1 0 0 1 -1 0 Z  M 30 1 l 1 0 0 1 -1 0 Z      M 36 1 l 1 0 0 1 -1 0 Z M 0 2 l 1 0 0 1 -1 0 Z  M 2 2 l 1 0 0 1 -1 0 Z M 3 2 l 1 0 0 1 -1 0 Z M 4 2 l 1 0 0 1 -1 0 Z  M 6 2 l 1 0 0 1 -1 0 Z  M 8 2 l 1 0 0 1 -1 0 Z M 9 2 l 1 0 0 1 -1 0 Z   M 12 2 l 1 0 0 1 -1 0 Z  M 14 2 l 1 0 0 1 -1 0 Z  M 16 2 l 1 0 0 1 -1 0 Z     M 21 2 l 1 0 0 1 -1 0 Z  M 23 2 l 1 0 0 1 -1 0 Z     M 28 2 l 1 0 0 1 -1 0 Z  M 30 2 l 1 0 0 1 -1 0 Z  M 32 2 l 1 0 0 1 -1 0 Z M 33 2 l 1 0 0 1 -1 0 Z M 34 2 l 1 0 0 1 -1 0 Z  M 36 2 l 1 0 0 1 -1 0 Z M 0 3 l 1 0 0 1 -1 0 Z  M 2 3 l 1 0 0 1 -1 0 Z M 3 3 l 1 0 0 1 -1 0 Z M 4 3 l 1 0 0 1 -1 0 Z  M 6 3 l 1 0 0 1 -1 0 Z  M 8 3 l 1 0 0 1 -1 0 Z M 9 3 l 1 0 0 1 -1 0 Z      M 15 3 l 1 0 0 1 -1 0 Z M 16 3 l 1 0 0 1 -1 0 Z M 17 3 l 1 0 0 1 -1 0 Z    M 21 3 l 1 0 0 1 -1 0 Z  M 23 3 l 1 0 0 1 -1 0 Z M 24 3 l 1 0 0 1 -1 0 Z M 25 3 l 1 0 0 1 -1 0 Z  M 27 3 l 1 0 0 1 -1 0 Z M 28 3 l 1 0 0 1 -1 0 Z  M 30 3 l 1 0 0 1 -1 0 Z  M 32 3 l 1 0 0 1 -1 0 Z M 33 3 l 1 0 0 1 -1 0 Z M 34 3 l 1 0 0 1 -1 0 Z  M 36 3 l 1 0 0 1 -1 0 Z M 0 4 l 1 0 0 1 -1 0 Z  M 2 4 l 1 0 0 1 -1 0 Z M 3 4 l 1 0 0 1 -1 0 Z M 4 4 l 1 0 0 1 -1 0 Z  M 6 4 l 1 0 0 1 -1 0 Z   M 9 4 l 1 0 0 1 -1 0 Z M 10 4 l 1 0 0 1 -1 0 Z M 11 4 l 1 0 0 1 -1 0 Z M 12 4 l 1 0 0 1 -1 0 Z  M 14 4 l 1 0 0 1 -1 0 Z   M 17 4 l 1 0 0 1 -1 0 Z M 18 4 l 1 0 0 1 -1 0 Z M 19 4 l 1 0 0 1 -1 0 Z  M 21 4 l 1 0 0 1 -1 0 Z  M 23 4 l 1 0 0 1 -1 0 Z  M 25 4 l 1 0 0 1 -1 0 Z     M 30 4 l 1 0 0 1 -1 0 Z  M 32 4 l 1 0 0 1 -1 0 Z M 33 4 l 1 0 0 1 -1 0 Z M 34 4 l 1 0 0 1 -1 0 Z  M 36 4 l 1 0 0 1 -1 0 Z M 0 5 l 1 0 0 1 -1 0 Z      M 6 5 l 1 0 0 1 -1 0 Z    M 10 5 l 1 0 0 1 -1 0 Z M 11 5 l 1 0 0 1 -1 0 Z  M 13 5 l 1 0 0 1 -1 0 Z    M 17 5 l 1 0 0 1 -1 0 Z   M 20 5 l 1 0 0 1 -1 0 Z    M 24 5 l 1 0 0 1 -1 0 Z M 25 5 l 1 0 0 1 -1 0 Z     M 30 5 l 1 0 0 1 -1 0 Z      M 36 5 l 1 0 0 1 -1 0 Z M 0 6 l 1 0 0 1 -1 0 Z M 1 6 l 1 0 0 1 -1 0 Z M 2 6 l 1 0 0 1 -1 0 Z M 3 6 l 1 0 0 1 -1 0 Z M 4 6 l 1 0 0 1 -1 0 Z M 5 6 l 1 0 0 1 -1 0 Z M 6 6 l 1 0 0 1 -1 0 Z  M 8 6 l 1 0 0 1 -1 0 Z  M 10 6 l 1 0 0 1 -1 0 Z  M 12 6 l 1 0 0 1 -1 0 Z  M 14 6 l 1 0 0 1 -1 0 Z  M 16 6 l 1 0 0 1 -1 0 Z  M 18 6 l 1 0 0 1 -1 0 Z  M 20 6 l 1 0 0 1 -1 0 Z  M 22 6 l 1 0 0 1 -1 0 Z  M 24 6 l 1 0 0 1 -1 0 Z  M 26 6 l 1 0 0 1 -1 0 Z  M 28 6 l 1 0 0 1 -1 0 Z  M 30 6 l 1 0 0 1 -1 0 Z M 31 6 l 1 0 0 1 -1 0 Z M 32 6 l 1 0 0 1 -1 0 Z M 33 6 l 1 0 0 1 -1 0 Z M 34 6 l 1 0 0 1 -1 0 Z M 35 6 l 1 0 0 1 -1 0 Z M 36 6 l 1 0 0 1 -1 0 Z         M 8 7 l 1 0 0 1 -1 0 Z M 9 7 l 1 0 0 1 -1 0 Z M 10 7 l 1 0 0 1 -1 0 Z M 11 7 l 1 0 0 1 -1 0 Z M 12 7 l 1 0 0 1 -1 0 Z M 13 7 l 1 0 0 1 -1 0 Z    M 17 7 l 1 0 0 1 -1 0 Z M 18 7 l 1 0 0 1 -1 0 Z M 19 7 l 1 0 0 1 -1 0 Z M 20 7 l 1 0 0 1 -1 0 Z  M 22 7 l 1 0 0 1 -1 0 Z    M 26 7 l 1 0 0 1 -1 0 Z  M 28 7 l 1 0 0 1 -1 0 Z         M 0 8 l 1 0 0 1 -1 0 Z      M 6 8 l 1 0 0 1 -1 0 Z  M 8 8 l 1 0 0 1 -1 0 Z  M 10 8 l 1 0 0 1 -1 0 Z M 11 8 l 1 0 0 1 -1 0 Z M 12 8 l 1 0 0 1 -1 0 Z  M 14 8 l 1 0 0 1 -1 0 Z  M 16 8 l 1 0 0 1 -1 0 Z     M 21 8 l 1 0 0 1 -1 0 Z   M 24 8 l 1 0 0 1 -1 0 Z M 25 8 l 1 0 0 1 -1 0 Z M 26 8 l 1 0 0 1 -1 0 Z M 27 8 l 1 0 0 1 -1 0 Z  M 29 8 l 1 0 0 1 -1 0 Z M 30 8 l 1 0 0 1 -1 0 Z   M 33 8 l 1 0 0 1 -1 0 Z M 34 8 l 1 0 0 1 -1 0 Z M 35 8 l 1 0 0 1 -1 0 Z   M 1 9 l 1 0 0 1 -1 0 Z  M 3 9 l 1 0 0 1 -1 0 Z M 4 9 l 1 0 0 1 -1 0 Z   M 7 9 l 1 0 0 1 -1 0 Z M 8 9 l 1 0 0 1 -1 0 Z M 9 9 l 1 0 0 1 -1 0 Z M 10 9 l 1 0 0 1 -1 0 Z M 11 9 l 1 0 0 1 -1 0 Z   M 14 9 l 1 0 0 1 -1 0 Z  M 16 9 l 1 0 0 1 -1 0 Z  M 18 9 l 1 0 0 1 -1 0 Z   M 21 9 l 1 0 0 1 -1 0 Z   M 24 9 l 1 0 0 1 -1 0 Z   M 27 9 l 1 0 0 1 -1 0 Z   M 30 9 l 1 0 0 1 -1 0 Z M 31 9 l 1 0 0 1 -1 0 Z M 32 9 l 1 0 0 1 -1 0 Z  M 34 9 l 1 0 0 1 -1 0 Z M 35 9 l 1 0 0 1 -1 0 Z  M 0 10 l 1 0 0 1 -1 0 Z M 1 10 l 1 0 0 1 -1 0 Z M 2 10 l 1 0 0 1 -1 0 Z  M 4 10 l 1 0 0 1 -1 0 Z M 5 10 l 1 0 0 1 -1 0 Z M 6 10 l 1 0 0 1 -1 0 Z M 7 10 l 1 0 0 1 -1 0 Z M 8 10 l 1 0 0 1 -1 0 Z M 9 10 l 1 0 0 1 -1 0 Z    M 13 10 l 1 0 0 1 -1 0 Z M 14 10 l 1 0 0 1 -1 0 Z M 15 10 l 1 0 0 1 -1 0 Z M 16 10 l 1 0 0 1 -1 0 Z   M 19 10 l 1 0 0 1 -1 0 Z  M 21 10 l 1 0 0 1 -1 0 Z M 22 10 l 1 0 0 1 -1 0 Z   M 25 10 l 1 0 0 1 -1 0 Z  M 27 10 l 1 0 0 1 -1 0 Z M 28 10 l 1 0 0 1 -1 0 Z M 29 10 l 1 0 0 1 -1 0 Z M 30 10 l 1 0 0 1 -1 0 Z M 31 10 l 1 0 0 1 -1 0 Z  M 33 10 l 1 0 0 1 -1 0 Z M 34 10 l 1 0 0 1 -1 0 Z M 35 10 l 1 0 0 1 -1 0 Z M 36 10 l 1 0 0 1 -1 0 Z  M 1 11 l 1 0 0 1 -1 0 Z  M 3 11 l 1 0 0 1 -1 0 Z M 4 11 l 1 0 0 1 -1 0 Z    M 8 11 l 1 0 0 1 -1 0 Z M 9 11 l 1 0 0 1 -1 0 Z M 10 11 l 1 0 0 1 -1 0 Z M 11 11 l 1 0 0 1 -1 0 Z M 12 11 l 1 0 0 1 -1 0 Z      M 18 11 l 1 0 0 1 -1 0 Z M 19 11 l 1 0 0 1 -1 0 Z M 20 11 l 1 0 0 1 -1 0 Z   M 23 11 l 1 0 0 1 -1 0 Z M 24 11 l 1 0 0 1 -1 0 Z  M 26 11 l 1 0 0 1 -1 0 Z    M 30 11 l 1 0 0 1 -1 0 Z M 31 11 l 1 0 0 1 -1 0 Z  M 33 11 l 1 0 0 1 -1 0 Z   M 36 11 l 1 0 0 1 -1 0 Z M 0 12 l 1 0 0 1 -1 0 Z M 1 12 l 1 0 0 1 -1 0 Z M 2 12 l 1 0 0 1 -1 0 Z  M 4 12 l 1 0 0 1 -1 0 Z  M 6 12 l 1 0 0 1 -1 0 Z  M 8 12 l 1 0 0 1 -1 0 Z       M 15 12 l 1 0 0 1 -1 0 Z M 16 12 l 1 0 0 1 -1 0 Z    M 20 12 l 1 0 0 1 -1 0 Z M 21 12 l 1 0 0 1 -1 0 Z  M 23 12 l 1 0 0 1 -1 0 Z     M 28 12 l 1 0 0 1 -1 0 Z  M 30 12 l 1 0 0 1 -1 0 Z M 31 12 l 1 0 0 1 -1 0 Z  M 33 12 l 1 0 0 1 -1 0 Z   M 36 12 l 1 0 0 1 -1 0 Z   M 2 13 l 1 0 0 1 -1 0 Z   M 5 13 l 1 0 0 1 -1 0 Z   M 8 13 l 1 0 0 1 -1 0 Z M 9 13 l 1 0 0 1 -1 0 Z    M 13 13 l 1 0 0 1 -1 0 Z M 14 13 l 1 0 0 1 -1 0 Z M 15 13 l 1 0 0 1 -1 0 Z M 16 13 l 1 0 0 1 -1 0 Z  M 18 13 l 1 0 0 1 -1 0 Z M 19 13 l 1 0 0 1 -1 0 Z M 20 13 l 1 0 0 1 -1 0 Z M 21 13 l 1 0 0 1 -1 0 Z M 22 13 l 1 0 0 1 -1 0 Z M 23 13 l 1 0 0 1 -1 0 Z M 24 13 l 1 0 0 1 -1 0 Z   M 27 13 l 1 0 0 1 -1 0 Z M 28 13 l 1 0 0 1 -1 0 Z   M 31 13 l 1 0 0 1 -1 0 Z  M 33 13 l 1 0 0 1 -1 0 Z  M 35 13 l 1 0 0 1 -1 0 Z M 36 13 l 1 0 0 1 -1 0 Z  M 1 14 l 1 0 0 1 -1 0 Z M 2 14 l 1 0 0 1 -1 0 Z M 3 14 l 1 0 0 1 -1 0 Z  M 5 14 l 1 0 0 1 -1 0 Z M 6 14 l 1 0 0 1 -1 0 Z M 7 14 l 1 0 0 1 -1 0 Z M 8 14 l 1 0 0 1 -1 0 Z M 9 14 l 1 0 0 1 -1 0 Z  M 11 14 l 1 0 0 1 -1 0 Z M 12 14 l 1 0 0 1 -1 0 Z  M 14 14 l 1 0 0 1 -1 0 Z M 15 14 l 1 0 0 1 -1 0 Z M 16 14 l 1 0 0 1 -1 0 Z  M 18 14 l 1 0 0 1 -1 0 Z  M 20 14 l 1 0 0 1 -1 0 Z  M 22 14 l 1 0 0 1 -1 0 Z   M 25 14 l 1 0 0 1 -1 0 Z  M 27 14 l 1 0 0 1 -1 0 Z  M 29 14 l 1 0 0 1 -1 0 Z  M 31 14 l 1 0 0 1 -1 0 Z M 32 14 l 1 0 0 1 -1 0 Z M 33 14 l 1 0 0 1 -1 0 Z  M 35 14 l 1 0 0 1 -1 0 Z M 36 14 l 1 0 0 1 -1 0 Z   M 2 15 l 1 0 0 1 -1 0 Z M 3 15 l 1 0 0 1 -1 0 Z  M 5 15 l 1 0 0 1 -1 0 Z    M 9 15 l 1 0 0 1 -1 0 Z M 10 15 l 1 0 0 1 -1 0 Z M 11 15 l 1 0 0 1 -1 0 Z M 12 15 l 1 0 0 1 -1 0 Z  M 14 15 l 1 0 0 1 -1 0 Z M 15 15 l 1 0 0 1 -1 0 Z    M 19 15 l 1 0 0 1 -1 0 Z  M 21 15 l 1 0 0 1 -1 0 Z M 22 15 l 1 0 0 1 -1 0 Z M 23 15 l 1 0 0 1 -1 0 Z    M 27 15 l 1 0 0 1 -1 0 Z M 28 15 l 1 0 0 1 -1 0 Z   M 31 15 l 1 0 0 1 -1 0 Z  M 33 15 l 1 0 0 1 -1 0 Z M 34 15 l 1 0 0 1 -1 0 Z   M 0 16 l 1 0 0 1 -1 0 Z M 1 16 l 1 0 0 1 -1 0 Z M 2 16 l 1 0 0 1 -1 0 Z   M 5 16 l 1 0 0 1 -1 0 Z M 6 16 l 1 0 0 1 -1 0 Z M 7 16 l 1 0 0 1 -1 0 Z    M 11 16 l 1 0 0 1 -1 0 Z M 12 16 l 1 0 0 1 -1 0 Z M 13 16 l 1 0 0 1 -1 0 Z M 14 16 l 1 0 0 1 -1 0 Z    M 18 16 l 1 0 0 1 -1 0 Z  M 20 16 l 1 0 0 1 -1 0 Z M 21 16 l 1 0 0 1 -1 0 Z M 22 16 l 1 0 0 1 -1 0 Z M 23 16 l 1 0 0 1 -1 0 Z M 24 16 l 1 0 0 1 -1 0 Z M 25 16 l 1 0 0 1 -1 0 Z M 26 16 l 1 0 0 1 -1 0 Z M 27 16 l 1 0 0 1 -1 0 Z  M 29 16 l 1 0 0 1 -1 0 Z M 30 16 l 1 0 0 1 -1 0 Z M 31 16 l 1 0 0 1 -1 0 Z M 32 16 l 1 0 0 1 -1 0 Z  M 34 16 l 1 0 0 1 -1 0 Z M 35 16 l 1 0 0 1 -1 0 Z     M 3 17 l 1 0 0 1 -1 0 Z M 4 17 l 1 0 0 1 -1 0 Z      M 10 17 l 1 0 0 1 -1 0 Z      M 16 17 l 1 0 0 1 -1 0 Z M 17 17 l 1 0 0 1 -1 0 Z      M 23 17 l 1 0 0 1 -1 0 Z  M 25 17 l 1 0 0 1 -1 0 Z M 26 17 l 1 0 0 1 -1 0 Z  M 28 17 l 1 0 0 1 -1 0 Z M 29 17 l 1 0 0 1 -1 0 Z  M 31 17 l 1 0 0 1 -1 0 Z  M 33 17 l 1 0 0 1 -1 0 Z M 34 17 l 1 0 0 1 -1 0 Z M 35 17 l 1 0 0 1 -1 0 Z   M 1 18 l 1 0 0 1 -1 0 Z   M 4 18 l 1 0 0 1 -1 0 Z M 5 18 l 1 0 0 1 -1 0 Z M 6 18 l 1 0 0 1 -1 0 Z  M 8 18 l 1 0 0 1 -1 0 Z M 9 18 l 1 0 0 1 -1 0 Z   M 12 18 l 1 0 0 1 -1 0 Z M 13 18 l 1 0 0 1 -1 0 Z   M 16 18 l 1 0 0 1 -1 0 Z M 17 18 l 1 0 0 1 -1 0 Z  M 19 18 l 1 0 0 1 -1 0 Z  M 21 18 l 1 0 0 1 -1 0 Z  M 23 18 l 1 0 0 1 -1 0 Z    M 27 18 l 1 0 0 1 -1 0 Z  M 29 18 l 1 0 0 1 -1 0 Z       M 36 18 l 1 0 0 1 -1 0 Z M 0 19 l 1 0 0 1 -1 0 Z M 1 19 l 1 0 0 1 -1 0 Z  M 3 19 l 1 0 0 1 -1 0 Z M 4 19 l 1 0 0 1 -1 0 Z M 5 19 l 1 0 0 1 -1 0 Z     M 10 19 l 1 0 0 1 -1 0 Z    M 14 19 l 1 0 0 1 -1 0 Z M 15 19 l 1 0 0 1 -1 0 Z M 16 19 l 1 0 0 1 -1 0 Z      M 22 19 l 1 0 0 1 -1 0 Z M 23 19 l 1 0 0 1 -1 0 Z M 24 19 l 1 0 0 1 -1 0 Z  M 26 19 l 1 0 0 1 -1 0 Z   M 29 19 l 1 0 0 1 -1 0 Z M 30 19 l 1 0 0 1 -1 0 Z   M 33 19 l 1 0 0 1 -1 0 Z   M 36 19 l 1 0 0 1 -1 0 Z  M 1 20 l 1 0 0 1 -1 0 Z  M 3 20 l 1 0 0 1 -1 0 Z M 4 20 l 1 0 0 1 -1 0 Z  M 6 20 l 1 0 0 1 -1 0 Z M 7 20 l 1 0 0 1 -1 0 Z  M 9 20 l 1 0 0 1 -1 0 Z   M 12 20 l 1 0 0 1 -1 0 Z  M 14 20 l 1 0 0 1 -1 0 Z   M 17 20 l 1 0 0 1 -1 0 Z    M 21 20 l 1 0 0 1 -1 0 Z M 22 20 l 1 0 0 1 -1 0 Z  M 24 20 l 1 0 0 1 -1 0 Z M 25 20 l 1 0 0 1 -1 0 Z M 26 20 l 1 0 0 1 -1 0 Z M 27 20 l 1 0 0 1 -1 0 Z M 28 20 l 1 0 0 1 -1 0 Z M 29 20 l 1 0 0 1 -1 0 Z M 30 20 l 1 0 0 1 -1 0 Z  M 32 20 l 1 0 0 1 -1 0 Z     M 0 21 l 1 0 0 1 -1 0 Z         M 9 21 l 1 0 0 1 -1 0 Z M 10 21 l 1 0 0 1 -1 0 Z    M 14 21 l 1 0 0 1 -1 0 Z   M 17 21 l 1 0 0 1 -1 0 Z M 18 21 l 1 0 0 1 -1 0 Z M 19 21 l 1 0 0 1 -1 0 Z   M 22 21 l 1 0 0 1 -1 0 Z M 23 21 l 1 0 0 1 -1 0 Z M 24 21 l 1 0 0 1 -1 0 Z M 25 21 l 1 0 0 1 -1 0 Z M 26 21 l 1 0 0 1 -1 0 Z M 27 21 l 1 0 0 1 -1 0 Z  M 29 21 l 1 0 0 1 -1 0 Z   M 32 21 l 1 0 0 1 -1 0 Z  M 34 21 l 1 0 0 1 -1 0 Z  M 36 21 l 1 0 0 1 -1 0 Z  M 1 22 l 1 0 0 1 -1 0 Z M 2 22 l 1 0 0 1 -1 0 Z M 3 22 l 1 0 0 1 -1 0 Z   M 6 22 l 1 0 0 1 -1 0 Z M 7 22 l 1 0 0 1 -1 0 Z M 8 22 l 1 0 0 1 -1 0 Z   M 11 22 l 1 0 0 1 -1 0 Z M 12 22 l 1 0 0 1 -1 0 Z  M 14 22 l 1 0 0 1 -1 0 Z M 15 22 l 1 0 0 1 -1 0 Z  M 17 22 l 1 0 0 1 -1 0 Z   M 20 22 l 1 0 0 1 -1 0 Z M 21 22 l 1 0 0 1 -1 0 Z      M 27 22 l 1 0 0 1 -1 0 Z M 28 22 l 1 0 0 1 -1 0 Z   M 31 22 l 1 0 0 1 -1 0 Z M 32 22 l 1 0 0 1 -1 0 Z M 33 22 l 1 0 0 1 -1 0 Z  M 35 22 l 1 0 0 1 -1 0 Z M 36 22 l 1 0 0 1 -1 0 Z  M 1 23 l 1 0 0 1 -1 0 Z  M 3 23 l 1 0 0 1 -1 0 Z M 4 23 l 1 0 0 1 -1 0 Z M 5 23 l 1 0 0 1 -1 0 Z  M 7 23 l 1 0 0 1 -1 0 Z    M 11 23 l 1 0 0 1 -1 0 Z M 12 23 l 1 0 0 1 -1 0 Z M 13 23 l 1 0 0 1 -1 0 Z M 14 23 l 1 0 0 1 -1 0 Z   M 17 23 l 1 0 0 1 -1 0 Z M 18 23 l 1 0 0 1 -1 0 Z M 19 23 l 1 0 0 1 -1 0 Z M 20 23 l 1 0 0 1 -1 0 Z  M 22 23 l 1 0 0 1 -1 0 Z  M 24 23 l 1 0 0 1 -1 0 Z  M 26 23 l 1 0 0 1 -1 0 Z M 27 23 l 1 0 0 1 -1 0 Z M 28 23 l 1 0 0 1 -1 0 Z M 29 23 l 1 0 0 1 -1 0 Z M 30 23 l 1 0 0 1 -1 0 Z M 31 23 l 1 0 0 1 -1 0 Z M 32 23 l 1 0 0 1 -1 0 Z M 33 23 l 1 0 0 1 -1 0 Z     M 1 24 l 1 0 0 1 -1 0 Z M 2 24 l 1 0 0 1 -1 0 Z    M 6 24 l 1 0 0 1 -1 0 Z M 7 24 l 1 0 0 1 -1 0 Z M 8 24 l 1 0 0 1 -1 0 Z  M 10 24 l 1 0 0 1 -1 0 Z M 11 24 l 1 0 0 1 -1 0 Z  M 13 24 l 1 0 0 1 -1 0 Z M 14 24 l 1 0 0 1 -1 0 Z   M 17 24 l 1 0 0 1 -1 0 Z  M 19 24 l 1 0 0 1 -1 0 Z M 20 24 l 1 0 0 1 -1 0 Z M 21 24 l 1 0 0 1 -1 0 Z M 22 24 l 1 0 0 1 -1 0 Z M 23 24 l 1 0 0 1 -1 0 Z     M 28 24 l 1 0 0 1 -1 0 Z  M 30 24 l 1 0 0 1 -1 0 Z M 31 24 l 1 0 0 1 -1 0 Z    M 35 24 l 1 0 0 1 -1 0 Z  M 0 25 l 1 0 0 1 -1 0 Z  M 2 25 l 1 0 0 1 -1 0 Z   M 5 25 l 1 0 0 1 -1 0 Z     M 10 25 l 1 0 0 1 -1 0 Z M 11 25 l 1 0 0 1 -1 0 Z M 12 25 l 1 0 0 1 -1 0 Z      M 18 25 l 1 0 0 1 -1 0 Z  M 20 25 l 1 0 0 1 -1 0 Z  M 22 25 l 1 0 0 1 -1 0 Z M 23 25 l 1 0 0 1 -1 0 Z M 24 25 l 1 0 0 1 -1 0 Z M 25 25 l 1 0 0 1 -1 0 Z   M 28 25 l 1 0 0 1 -1 0 Z  M 30 25 l 1 0 0 1 -1 0 Z M 31 25 l 1 0 0 1 -1 0 Z  M 33 25 l 1 0 0 1 -1 0 Z M 34 25 l 1 0 0 1 -1 0 Z   M 0 26 l 1 0 0 1 -1 0 Z  M 2 26 l 1 0 0 1 -1 0 Z   M 5 26 l 1 0 0 1 -1 0 Z M 6 26 l 1 0 0 1 -1 0 Z M 7 26 l 1 0 0 1 -1 0 Z M 8 26 l 1 0 0 1 -1 0 Z   M 11 26 l 1 0 0 1 -1 0 Z    M 15 26 l 1 0 0 1 -1 0 Z M 16 26 l 1 0 0 1 -1 0 Z  M 18 26 l 1 0 0 1 -1 0 Z M 19 26 l 1 0 0 1 -1 0 Z       M 26 26 l 1 0 0 1 -1 0 Z M 27 26 l 1 0 0 1 -1 0 Z   M 30 26 l 1 0 0 1 -1 0 Z M 31 26 l 1 0 0 1 -1 0 Z M 32 26 l 1 0 0 1 -1 0 Z  M 34 26 l 1 0 0 1 -1 0 Z M 35 26 l 1 0 0 1 -1 0 Z M 36 26 l 1 0 0 1 -1 0 Z M 0 27 l 1 0 0 1 -1 0 Z   M 3 27 l 1 0 0 1 -1 0 Z M 4 27 l 1 0 0 1 -1 0 Z M 5 27 l 1 0 0 1 -1 0 Z  M 7 27 l 1 0 0 1 -1 0 Z   M 10 27 l 1 0 0 1 -1 0 Z   M 13 27 l 1 0 0 1 -1 0 Z M 14 27 l 1 0 0 1 -1 0 Z  M 16 27 l 1 0 0 1 -1 0 Z   M 19 27 l 1 0 0 1 -1 0 Z   M 22 27 l 1 0 0 1 -1 0 Z M 23 27 l 1 0 0 1 -1 0 Z    M 27 27 l 1 0 0 1 -1 0 Z M 28 27 l 1 0 0 1 -1 0 Z M 29 27 l 1 0 0 1 -1 0 Z  M 31 27 l 1 0 0 1 -1 0 Z M 32 27 l 1 0 0 1 -1 0 Z M 33 27 l 1 0 0 1 -1 0 Z M 34 27 l 1 0 0 1 -1 0 Z   M 0 28 l 1 0 0 1 -1 0 Z   M 3 28 l 1 0 0 1 -1 0 Z M 4 28 l 1 0 0 1 -1 0 Z M 5 28 l 1 0 0 1 -1 0 Z M 6 28 l 1 0 0 1 -1 0 Z  M 8 28 l 1 0 0 1 -1 0 Z M 9 28 l 1 0 0 1 -1 0 Z M 10 28 l 1 0 0 1 -1 0 Z M 11 28 l 1 0 0 1 -1 0 Z M 12 28 l 1 0 0 1 -1 0 Z   M 15 28 l 1 0 0 1 -1 0 Z    M 19 28 l 1 0 0 1 -1 0 Z M 20 28 l 1 0 0 1 -1 0 Z  M 22 28 l 1 0 0 1 -1 0 Z  M 24 28 l 1 0 0 1 -1 0 Z M 25 28 l 1 0 0 1 -1 0 Z  M 27 28 l 1 0 0 1 -1 0 Z M 28 28 l 1 0 0 1 -1 0 Z M 29 28 l 1 0 0 1 -1 0 Z M 30 28 l 1 0 0 1 -1 0 Z M 31 28 l 1 0 0 1 -1 0 Z M 32 28 l 1 0 0 1 -1 0 Z M 33 28 l 1 0 0 1 -1 0 Z M 34 28 l 1 0 0 1 -1 0 Z  M 36 28 l 1 0 0 1 -1 0 Z         M 8 29 l 1 0 0 1 -1 0 Z    M 12 29 l 1 0 0 1 -1 0 Z   M 15 29 l 1 0 0 1 -1 0 Z M 16 29 l 1 0 0 1 -1 0 Z  M 18 29 l 1 0 0 1 -1 0 Z M 19 29 l 1 0 0 1 -1 0 Z  M 21 29 l 1 0 0 1 -1 0 Z  M 23 29 l 1 0 0 1 -1 0 Z  M 25 29 l 1 0 0 1 -1 0 Z   M 28 29 l 1 0 0 1 -1 0 Z    M 32 29 l 1 0 0 1 -1 0 Z    M 36 29 l 1 0 0 1 -1 0 Z M 0 30 l 1 0 0 1 -1 0 Z M 1 30 l 1 0 0 1 -1 0 Z M 2 30 l 1 0 0 1 -1 0 Z M 3 30 l 1 0 0 1 -1 0 Z M 4 30 l 1 0 0 1 -1 0 Z M 5 30 l 1 0 0 1 -1 0 Z M 6 30 l 1 0 0 1 -1 0 Z     M 11 30 l 1 0 0 1 -1 0 Z  M 13 30 l 1 0 0 1 -1 0 Z M 14 30 l 1 0 0 1 -1 0 Z M 15 30 l 1 0 0 1 -1 0 Z M 16 30 l 1 0 0 1 -1 0 Z M 17 30 l 1 0 0 1 -1 0 Z M 18 30 l 1 0 0 1 -1 0 Z M 19 30 l 1 0 0 1 -1 0 Z M 20 30 l 1 0 0 1 -1 0 Z   M 23 30 l 1 0 0 1 -1 0 Z M 24 30 l 1 0 0 1 -1 0 Z M 25 30 l 1 0 0 1 -1 0 Z   M 28 30 l 1 0 0 1 -1 0 Z  M 30 30 l 1 0 0 1 -1 0 Z  M 32 30 l 1 0 0 1 -1 0 Z    M 36 30 l 1 0 0 1 -1 0 Z M 0 31 l 1 0 0 1 -1 0 Z      M 6 31 l 1 0 0 1 -1 0 Z    M 10 31 l 1 0 0 1 -1 0 Z  M 12 31 l 1 0 0 1 -1 0 Z M 13 31 l 1 0 0 1 -1 0 Z M 14 31 l 1 0 0 1 -1 0 Z M 15 31 l 1 0 0 1 -1 0 Z    M 19 31 l 1 0 0 1 -1 0 Z  M 21 31 l 1 0 0 1 -1 0 Z  M 23 31 l 1 0 0 1 -1 0 Z M 24 31 l 1 0 0 1 -1 0 Z  M 26 31 l 1 0 0 1 -1 0 Z M 27 31 l 1 0 0 1 -1 0 Z M 28 31 l 1 0 0 1 -1 0 Z    M 32 31 l 1 0 0 1 -1 0 Z   M 35 31 l 1 0 0 1 -1 0 Z  M 0 32 l 1 0 0 1 -1 0 Z  M 2 32 l 1 0 0 1 -1 0 Z M 3 32 l 1 0 0 1 -1 0 Z M 4 32 l 1 0 0 1 -1 0 Z  M 6 32 l 1 0 0 1 -1 0 Z    M 10 32 l 1 0 0 1 -1 0 Z M 11 32 l 1 0 0 1 -1 0 Z M 12 32 l 1 0 0 1 -1 0 Z M 13 32 l 1 0 0 1 -1 0 Z  M 15 32 l 1 0 0 1 -1 0 Z   M 18 32 l 1 0 0 1 -1 0 Z  M 20 32 l 1 0 0 1 -1 0 Z M 21 32 l 1 0 0 1 -1 0 Z M 22 32 l 1 0 0 1 -1 0 Z    M 26 32 l 1 0 0 1 -1 0 Z M 27 32 l 1 0 0 1 -1 0 Z M 28 32 l 1 0 0 1 -1 0 Z M 29 32 l 1 0 0 1 -1 0 Z M 30 32 l 1 0 0 1 -1 0 Z M 31 32 l 1 0 0 1 -1 0 Z M 32 32 l 1 0 0 1 -1 0 Z  M 34 32 l 1 0 0 1 -1 0 Z  M 36 32 l 1 0 0 1 -1 0 Z M 0 33 l 1 0 0 1 -1 0 Z  M 2 33 l 1 0 0 1 -1 0 Z M 3 33 l 1 0 0 1 -1 0 Z M 4 33 l 1 0 0 1 -1 0 Z  M 6 33 l 1 0 0 1 -1 0 Z   M 9 33 l 1 0 0 1 -1 0 Z   M 12 33 l 1 0 0 1 -1 0 Z M 13 33 l 1 0 0 1 -1 0 Z M 14 33 l 1 0 0 1 -1 0 Z   M 17 33 l 1 0 0 1 -1 0 Z   M 20 33 l 1 0 0 1 -1 0 Z  M 22 33 l 1 0 0 1 -1 0 Z   M 25 33 l 1 0 0 1 -1 0 Z M 26 33 l 1 0 0 1 -1 0 Z M 27 33 l 1 0 0 1 -1 0 Z  M 29 33 l 1 0 0 1 -1 0 Z M 30 33 l 1 0 0 1 -1 0 Z      M 36 33 l 1 0 0 1 -1 0 Z M 0 34 l 1 0 0 1 -1 0 Z  M 2 34 l 1 0 0 1 -1 0 Z M 3 34 l 1 0 0 1 -1 0 Z M 4 34 l 1 0 0 1 -1 0 Z  M 6 34 l 1 0 0 1 -1 0 Z    M 10 34 l 1 0 0 1 -1 0 Z    M 14 34 l 1 0 0 1 -1 0 Z      M 20 34 l 1 0 0 1 -1 0 Z     M 25 34 l 1 0 0 1 -1 0 Z M 26 34 l 1 0 0 1 -1 0 Z M 27 34 l 1 0 0 1 -1 0 Z       M 34 34 l 1 0 0 1 -1 0 Z M 35 34 l 1 0 0 1 -1 0 Z M 36 34 l 1 0 0 1 -1 0 Z M 0 35 l 1 0 0 1 -1 0 Z      M 6 35 l 1 0 0 1 -1 0 Z   M 9 35 l 1 0 0 1 -1 0 Z M 10 35 l 1 0 0 1 -1 0 Z  M 12 35 l 1 0 0 1 -1 0 Z M 13 35 l 1 0 0 1 -1 0 Z  M 15 35 l 1 0 0 1 -1 0 Z M 16 35 l 1 0 0 1 -1 0 Z      M 22 35 l 1 0 0 1 -1 0 Z  M 24 35 l 1 0 0 1 -1 0 Z  M 26 35 l 1 0 0 1 -1 0 Z M 27 35 l 1 0 0 1 -1 0 Z M 28 35 l 1 0 0 1 -1 0 Z M 29 35 l 1 0 0 1 -1 0 Z   M 32 35 l 1 0 0 1 -1 0 Z M 33 35 l 1 0 0 1 -1 0 Z   M 36 35 l 1 0 0 1 -1 0 Z M 0 36 l 1 0 0 1 -1 0 Z M 1 36 l 1 0 0 1 -1 0 Z M 2 36 l 1 0 0 1 -1 0 Z M 3 36 l 1 0 0 1 -1 0 Z M 4 36 l 1 0 0 1 -1 0 Z M 5 36 l 1 0 0 1 -1 0 Z M 6 36 l 1 0 0 1 -1 0 Z  M 8 36 l 1 0 0 1 -1 0 Z M 9 36 l 1 0 0 1 -1 0 Z  M 11 36 l 1 0 0 1 -1 0 Z M 12 36 l 1 0 0 1 -1 0 Z M 13 36 l 1 0 0 1 -1 0 Z M 14 36 l 1 0 0 1 -1 0 Z     M 19 36 l 1 0 0 1 -1 0 Z    M 23 36 l 1 0 0 1 -1 0 Z    M 27 36 l 1 0 0 1 -1 0 Z M 28 36 l 1 0 0 1 -1 0 Z M 29 36 l 1 0 0 1 -1 0 Z  M 31 36 l 1 0 0 1 -1 0 Z     M 36 36 l 1 0 0 1 -1 0 Z" fill="#000000"></path>
+                                                         </svg>
+                                                      </div>
+                                                      <div class="qrCodeOverlay_c6cd4b"><img src="../discord/images/450a761db3bfe89ca9b9.png" alt=""></div>
+                                                   </div>
+                                                   <h2 class="heading-xl/semibold_dc00ef defaultColor_e42ec6 title_b83a05 marginBottom8_f7730b" data-text-variant="heading-xl/semibold" style="color: var(--header-primary);">Log in with QR Code</h2>
+                                                   <div class="text-md/normal_dc00ef" data-text-variant="text-md/normal" style="color: var(--header-secondary);">Scan this with the <strong>Discord mobile app</strong> to log in instantly.</div>
+                                                   <button type="button" class="button_dd4f85 lookLink_dd4f85 lowSaturationUnderline_c7819f colorLink_dd4f85 sizeLarge_dd4f85 grow_dd4f85">
+                                                      <div class="contents_dd4f85">Or sign in with passkey</div>
+                                                   </button>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div id="cash-app-pay-container"></div>
+               <div></div>
+               <div class="layerContainer_cd0de5"></div>
+               <div class="layerContainer_cd0de5"></div>
+               <div class="containerTop_b18d5c"></div>
+               <div class="wrapper_cd22e7">
+                  <div class="gadientHighlight_cd22e7" style="opacity: 0;"></div>
+                  <div class="swipeWrapper_cd22e7" style="transform: translate3d(-100%, 0px, 0px);">
+                     <svg class="swipe_cd22e7" viewBox="0 0 848 1024" fill="none">
+                        <path d="M257.206 1024L0 0H341.333L598.539 1024H257.206Z" fill="white"></path>
+                        <path d="M847.975 1024H690.436L433.231 0H590.769L847.975 1024Z" fill="white"></path>
+                     </svg>
+                  </div>
+               </div>
+               <canvas class="canvas_a41a9d" width="1295" height="875"></canvas>
+               <canvas class="SpriteCanvas-module_spriteCanvasHidden__ndzQV" width="240" height="240"></canvas>
+            </div>
+            <div class="pictureInPicture_e0c856"></div>
+         </div>
+         <div style="position: fixed; opacity: 0; pointer-events: none;"></div>
+         <div></div>
+      </div>
+      <script nonce="">window.__OVERLAY__=/overlay/.test(location.pathname)</script><script nonce="">window.__BILLING_STANDALONE__=/^\/billing/.test(location.pathname)</script>  
+      <script src="../discord/web.3293dbbf90bafac60d3c.js" defer=""></script><script src="../discord/sentry.abc0129c539b29bedc5b.js" defer=""></script><script nonce="">(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.nonce='MjksMTQwLDE1LDI0NSwyMjAsMTE3LDIzNiw1OA==';d.innerHTML="window.__CF$cv$params={r:'8f2f56998bcb773e',t:'MTczNDM1OTA3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='MjksMTQwLDE1LDI0NSwyMjAsMTE3LDIzNiw1OA==';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+      <div class="drag-previewer" style="z-index: 1000; filter: drop-shadow(0 0 0 var(--background-floating)) drop-shadow(var(--elevation-high));">
+         <svg style="contain: paint;">
+            <foreignobject></foreignobject>
+         </svg>
+      </div>
+      <div id="uid_1" style="display: none;">,</div>
+      <div id="uid_2" style="display: none;">,</div>
+      <div id="uid_3" style="display: none;">Reactions</div>
+      <div id="uid_4" style="display: none;">click to open image dialogue</div>
+   </body>
+</html>
